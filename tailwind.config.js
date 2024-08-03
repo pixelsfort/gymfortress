@@ -76,7 +76,7 @@ module.exports = {
             },
             backgroundImage: {
                 "landing-hero-bg": "url('/public/images/hero-bg.png')",
-                "bg-guest-layout-bg": "URL('/public/images/hero-bg.jpg')",
+                "bg-guest-layout-bg": "url('/public/images/hero-bg.jpg')",
             },
         },
     },
