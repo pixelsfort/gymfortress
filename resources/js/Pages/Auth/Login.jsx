@@ -40,10 +40,10 @@ export default function Login({ status, canResetPassword }) {
                     <ApplicationLogo className="fill-current text-gray-500" />
                 </Link>
                 <div className="text-default-900 mt-6 font-inter text-2xl font-bold 2xl:mt-8 2xl:text-3xl">
-                    Hey, Hello 👋
+                    Welcome Back! 👋
                 </div>
                 <div className="text-default-600 text-base leading-6 2xl:mt-2 2xl:text-lg">
-                    Enter the information you entered while registering.
+                    Please enter your details while registering.
                 </div>
             </div>
 
@@ -90,7 +90,7 @@ export default function Login({ status, canResetPassword }) {
                                 setData("remember", e.target.checked)
                             }
                         />
-                        <span className="ms-2 text-sm text-gray-600">
+                        <span className="ms-2 cursor-pointer text-sm text-gray-600">
                             Remember me
                         </span>
                     </label>

@@ -4,6 +4,7 @@ import InputLabel from "@/Components/Form/InputLabel";
 import PrimaryButton from "@/Components/Button/PrimaryButton";
 import TextInput from "@/Components/Form/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
+import ApplicationLogo from "@/Components/Logo/ApplicationLogo";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -24,6 +25,17 @@ export default function Register() {
     return (
         <GuestLayout>
             <Head title="Register" />
+            <div className="w-full py-10">
+                <Link className="inline-block font-inter" href="/">
+                    <ApplicationLogo className="fill-current text-gray-500" />
+                </Link>
+                <div className="text-default-900 mt-6 font-inter text-2xl font-bold 2xl:mt-8 2xl:text-3xl">
+                    Hey, Hello 👋
+                </div>
+                <div className="text-default-600 text-base leading-6 2xl:mt-2 2xl:text-lg">
+                    Enter the information you entered while registering.
+                </div>
+            </div>
 
             <form onSubmit={submit}>
                 <div>
