@@ -7,6 +7,7 @@ import TextInput from "@/Components/Form/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import ApplicationLogo from "@/Components/Logo/ApplicationLogo";
 import { Button } from "@/Components/ui/button";
+import { toast } from "react-toastify";
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -20,6 +21,13 @@ export default function Login({ status, canResetPassword }) {
 
         post(route("login"), {
             onFinish: () => reset("password"),
+            onSuccess: () => {
+                toast.success("Logged in Successfully", {
+                    theme: "colored",
+                    autoClose: 2000,
+                    progress: undefined,
+                });
+            },
         });
     };
 

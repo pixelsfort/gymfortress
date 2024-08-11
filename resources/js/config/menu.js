@@ -49,61 +49,35 @@ export const menusConfig = {
             icon: DashBoard,
             child: [
                 {
-                    title: "Analytics",
-                    href: "/dashboard",
+                    title: "Dashboard",
+                    href: "/",
                     icon: Graph,
-                },
-                {
-                    title: "Ecommerce",
-                    href: "/ecommerce",
-                    icon: Cart,
-                },
-                {
-                    title: "Project ",
-                    href: "/project",
-                    icon: ClipBoard,
                 },
             ],
         },
         {
-            title: "Application",
+            title: "Members",
             icon: Application,
             child: [
                 {
-                    title: "chat",
-                    icon: Messages,
-                    href: "/chat",
-                },
-                {
-                    title: "email",
+                    title: "All Members (Trainees)",
                     icon: Envelope,
-                    href: "/email",
+                    href: "/",
                 },
                 {
-                    title: "kanban",
+                    title: "Add Members (Trainee)",
+                    icon: Messages,
+                    href: "/",
+                },
+                {
+                    title: "Dropped Members",
                     icon: Monitor,
-                    href: "/kanban",
-                },
-                {
-                    title: "task",
-                    icon: ListFill,
-                    href: "/task",
-                },
-                {
-                    title: "calendar",
-                    icon: Calendar,
-                    href: "/calendar",
-                },
-
-                {
-                    title: "project",
-                    icon: ClipBoard,
-                    href: "/projects",
+                    href: "/",
                 },
             ],
         },
         {
-            title: "Components",
+            title: "Trainer",
             icon: Components,
             megaMenu: [
                 {
