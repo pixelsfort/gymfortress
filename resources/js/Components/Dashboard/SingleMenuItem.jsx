@@ -1,55 +1,29 @@
-import React from "react";
+import { Link, usePage } from "@inertiajs/react";
+import { useState } from "react";
 
-import { Badge } from "@/components/ui/badge";
-import { cn, isLocationMatch } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-const SingleMenuItem = ({ item, collapsed, hovered }) => {
-    const { badge, href, title } = item;
-    const locationName = usePathname();
+function SingleMenuItem({ item }) {
     return (
-        <Link href={href}>
-            <>
-                {!collapsed || hovered ? (
+        <>
+            <li>
+                <Link href={item.path || "#"}>
                     <div
-                        className={cn(
-                            "text-default-700 dark:text-default-950 group flex cursor-pointer gap-3 rounded px-[10px] py-3 text-sm font-medium capitalize hover:bg-primary hover:text-primary-foreground",
-                            {
-                                "bg-primary text-primary-foreground":
-                                    isLocationMatch(href, locationName),
-                            },
-                        )}
+                        className={`${
+                            route().current(item.path)
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-transparent"
+                        } group flex cursor-pointer rounded px-[10px] py-3 text-sm font-medium capitalize transition-all duration-100 hover:bg-primary hover:text-primary-foreground`}
                     >
-                        <span className="flex-grow-0">
-                            <item.icon className="h-5 w-5" />
-                        </span>
-                        <div className="text-box flex-grow">{title}</div>
-                        {badge && (
-                            <Badge className="rounded">{item.badge}</Badge>
-                        )}
+                        <div className="flex flex-1 items-start gap-3">
+                            <span className="inline-flex items-center text-lg">
+                                icon
+                            </span>
+                            <div className="">{item.title}</div>
+                        </div>
                     </div>
-                ) : (
-                    <div>
-                        <span
-                            className={cn(
-                                "relative mx-auto inline-flex h-12 w-12 flex-col items-center justify-center rounded-md transition-all duration-300",
-                                {
-                                    "bg-primary text-primary-foreground":
-                                        isLocationMatch(href, locationName),
-                                    "text-default-600": !isLocationMatch(
-                                        href,
-                                        locationName,
-                                    ),
-                                },
-                            )}
-                        >
-                            <item.icon className="h-6 w-6" />
-                        </span>
-                    </div>
-                )}
-            </>
-        </Link>
+                </Link>
+            </li>
+        </>
     );
-};
+}
 
 export default SingleMenuItem;

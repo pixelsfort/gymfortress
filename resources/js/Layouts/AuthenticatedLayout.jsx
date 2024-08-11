@@ -14,7 +14,7 @@ export default function Authenticated({ user, header, children }) {
 
     return (
         <>
-            <div className="h-screen bg-gray-200">
+            <div className="h-screen bg-muted">
                 <AdminHeader />
                 <AdminSidebar />
 
