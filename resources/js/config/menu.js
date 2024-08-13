@@ -1,15 +1,8 @@
 export const menusConfig = {
     sidebarNav: [
         {
-            title: "Dashboard",
+            title: "Home",
             icon: "",
-            child: [
-                {
-                    title: "Dashboard",
-                    path: "/",
-                    icon: "",
-                },
-            ],
         },
         {
             title: "Members",
