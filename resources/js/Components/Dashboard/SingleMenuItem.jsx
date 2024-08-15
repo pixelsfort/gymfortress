@@ -2,22 +2,24 @@ import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
 function SingleMenuItem({ item }) {
+    const { title, href, icon } = item;
+
+    const currentPath = window.location.pathname;
+    console.log(currentPath);
     return (
         <>
-            <Link href={item.path || "#"}>
+            <Link href={href || "#"}>
                 <div
-                    className={`${
-                        route().current(item.path)
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-transparent"
-                    } group flex cursor-pointer rounded transition-all duration-100 hover:bg-primary hover:text-primary-foreground`}
+                    className={`flex h-[56px] w-[56px] flex-1 cursor-pointer flex-col items-center justify-center gap-1 rounded p-4 hover:bg-primary hover:text-primary-foreground ${currentPath === item.href ? "bg-primary" : ""} `}
                 >
-                    <div className="flex h-12 w-12 flex-1 flex-col items-start justify-center gap-1">
-                        <span className="inline-flex items-center">icon</span>
-                        <span className="text-xs font-normal">
-                            {item.title}
-                        </span>
-                    </div>
+                    <span className="inline-flex items-center">
+                        <img src={icon} className="h-4 w-4" />
+                    </span>
+                    <span
+                        className={`text-[10px] font-semibold ${currentPath === item.href ? "text-white" : ""}`}
+                    >
+                        {title}
+                    </span>
                 </div>
             </Link>
         </>
