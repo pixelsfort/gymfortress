@@ -7,6 +7,7 @@ import { Link } from "@inertiajs/react";
 import AdminSidebar from "@/Components/Dashboard/AdminSidebar";
 import AdminHeader from "@/Components/Dashboard/AdminHeader";
 import AdminFooter from "@/Components/Dashboard/AdminFooter";
+import { SidebarProvider } from "@/Context/SidebarContext";
 
 export default function Authenticated({ user, header, children }) {
     // const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -15,8 +16,10 @@ export default function Authenticated({ user, header, children }) {
     return (
         <>
             <div className="h-screen bg-muted">
-                <AdminHeader />
-                <AdminSidebar />
+                <SidebarProvider>
+                    <AdminHeader />
+                    <AdminSidebar />
+                </SidebarProvider>
 
                 {/* Main Content */}
                 <main

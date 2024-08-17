@@ -22,7 +22,7 @@ export const menusConfig = {
         {
             title: "Members",
             icon: Members,
-            href: "/members",
+            href: "#",
             child: [
                 {
                     title: "All Members (Trainees)",

@@ -1,14 +1,31 @@
 import { RiMenu2Line } from "react-icons/ri";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import Dropdown from "../Dropdown/Dropdown";
+import { SidebarContext } from "@/Context/SidebarContext";
+import React, { useContext } from "react";
+import { IoChevronBackSharp } from "react-icons/io5";
 
 const AdminHeader = ({ user, header, children }) => {
+    const { toggleSidebar } = useContext(SidebarContext);
+    const { isSidebarOpen } = useContext(SidebarContext);
+
     return (
         <header id="header" className="sticky top-0 z-50 xl:ml-[300px]">
             <div className="w-full border-b bg-card/90 px-[15px] py-3 backdrop-blur-lg md:px-6">
                 <div className="flex h-full items-center justify-between">
                     <div className="flex items-center gap-3 md:gap-6">
-                        <RiMenu2Line className="h-6 w-6 cursor-pointer" />
+                        {isSidebarOpen ? (
+                            <IoChevronBackSharp
+                                className="h-6 w-6 cursor-pointer"
+                                onClick={toggleSidebar}
+                            />
+                        ) : (
+                            <RiMenu2Line
+                                className="h-6 w-6 cursor-pointer"
+                                onClick={toggleSidebar}
+                            />
+                        )}
+
                         <h1>Header</h1>
                     </div>
                     <div className="flex items-center gap-2">

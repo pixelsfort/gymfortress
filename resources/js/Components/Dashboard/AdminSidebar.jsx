@@ -2,9 +2,42 @@ import { ScrollArea } from "@radix-ui/react-scroll-area";
 import ApplicationLogo from "../Logo/ApplicationLogo";
 import { menusConfig } from "@/config/menu";
 import SingleMenuItem from "./SingleMenuItem";
+import { useContext, useEffect, useState } from "react";
+import { SidebarContext } from "@/Context/SidebarContext";
+import { cn } from "@/lib/utils";
 const menus = menusConfig?.sidebarNav || [];
 
 const AdminSidebar = () => {
+    const [activeIndex, setActiveIndex] = useState(null);
+    const [currentSubMenu, setCurrentSubMenu] = useState([]);
+    const [seubMenu, setSubmenu] = useState(true);
+    const [collapsed, setCollapsed] = useState(true);
+
+    const { isSidebarOpen } = useContext(SidebarContext);
+
+    console.log(currentSubMenu);
+
+    useEffect(() => {}, []);
+
+    const toggleSubMenu = (index) => {
+        setActiveIndex(index);
+        if (menus[index].child) {
+            setCurrentSubMenu(menus[index].child);
+            setSubmenu(false);
+            setCollapsed(false);
+        } else {
+            setSubmenu(true);
+            setCollapsed(true);
+        }
+    };
+
+    const getMenuTitle = () => {
+        if (activeIndex !== null) {
+            return menus[activeIndex].title;
+        }
+        return "";
+    };
+
     return (
         <div
             id="app-sidebar"
@@ -17,9 +50,9 @@ const AdminSidebar = () => {
 
                 <ScrollArea className="flex h-[100vh] justify-center pt-2">
                     <ul className="flex flex-col items-center gap-2">
-                        {menus.map((item, index) => {
+                        {menus.map((item, i) => {
                             return (
-                                <li key={index}>
+                                <li key={i} onClick={() => toggleSubMenu(i)}>
                                     {item.title && (
                                         <SingleMenuItem item={item} />
                                     )}
@@ -29,20 +62,25 @@ const AdminSidebar = () => {
                     </ul>
                 </ScrollArea>
             </div>
-            <div className="border-default-200 pointer-events-auto relative z-10 flex h-full w-[228px] flex-col border-r bg-card transition-all duration-300">
+
+            {/* Submenus */}
+            <div
+                className={cn(
+                    "border-default-200 pointer-events-auto relative z-10 flex h-full w-[228px] flex-col border-r bg-card transition-all duration-300",
+                    { "translate-x-[calc(-100%_-_72px)]": isSidebarOpen },
+                )}
+            >
                 <h1 className="text-default-700 sticky top-0 z-50 flex items-center gap-4 bg-transparent px-4 py-4 text-lg font-semibold capitalize">
-                    Nested Menu
+                    {getMenuTitle()}
                 </h1>
                 <div className="relative h-[calc(100%-40px)] grow overflow-hidden">
                     <ScrollArea className="h-full w-full rounded-[inherit]">
                         <div className="px-4">
                             <ul>
-                                {menus.map((item, index) => {
+                                {currentSubMenu.map((childItem, j) => {
                                     return (
-                                        <li key={index}>
-                                            {item.child && (
-                                                <h1>{item.child.title}</h1>
-                                            )}
+                                        <li key={j}>
+                                            <h2>{childItem.title}</h2>
                                         </li>
                                     );
                                 })}

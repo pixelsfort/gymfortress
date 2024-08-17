@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
 // Members Route
 Route::get('/members', function () {
-    return Inertia::render('admin/member/Members');
+    return Inertia::render('admin/Member/Members');
 })->middleware(['auth', 'verified'])->name('members');
 
 
