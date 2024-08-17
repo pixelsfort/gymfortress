@@ -26,7 +26,7 @@ export default function Authenticated({ user, header, children }) {
                     id="content-wrapper"
                     className="transition-all duration-150 xl:ml-[300px]"
                 >
-                    <div className="mx-auto px-4 pb-[37px] pt-[15px] md:px-6 md:pt-10">
+                    <div className="mx-auto max-w-[1440px] px-4 py-4 md:px-6 md:pt-6">
                         {children}
                     </div>
                 </main>

@@ -5,6 +5,7 @@ import SingleMenuItem from "./SingleMenuItem";
 import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "@/Context/SidebarContext";
 import { cn } from "@/lib/utils";
+import { Link } from "@inertiajs/react";
 const menus = menusConfig?.sidebarNav || [];
 
 const AdminSidebar = () => {
@@ -39,13 +40,13 @@ const AdminSidebar = () => {
     };
 
     return (
-        <div
+        <aside
             id="app-sidebar"
             className="main-sidebar pointer-events-none fixed start-0 top-0 z-[60] flex h-full xl:z-10 print:hidden"
         >
-            <div className="border-default-200 dark:border-default-300 pointer-events-auto relative z-20 flex h-full w-[72px] flex-col bg-primary/5 transition-all duration-300">
-                <div className="max-h-[72px] bg-primary p-4">
-                    <ApplicationLogo className="h-8 w-8 text-white" />
+            <div className="pointer-events-auto relative z-20 flex h-full w-[72px] flex-col border-r border-dashed bg-white transition-all duration-300">
+                <div className="max-h-[72px] p-4">
+                    <ApplicationLogo className="h-8 w-8 text-primary" />
                 </div>
 
                 <ScrollArea className="flex h-[100vh] justify-center pt-2">
@@ -66,21 +67,23 @@ const AdminSidebar = () => {
             {/* Submenus */}
             <div
                 className={cn(
-                    "border-default-200 pointer-events-auto relative z-10 flex h-full w-[228px] flex-col border-r bg-card transition-all duration-300",
+                    "pointer-events-auto relative z-10 flex h-full w-[228px] flex-col border-r bg-card transition-all duration-300",
                     { "translate-x-[calc(-100%_-_72px)]": isSidebarOpen },
                 )}
             >
-                <h1 className="text-default-700 sticky top-0 z-50 flex items-center gap-4 bg-transparent px-4 py-4 text-lg font-semibold capitalize">
+                <h1 className="sticky top-0 z-50 flex items-center gap-4 bg-transparent px-4 py-4 text-lg font-semibold capitalize">
                     {getMenuTitle()}
                 </h1>
                 <div className="relative h-[calc(100%-40px)] grow overflow-hidden">
                     <ScrollArea className="h-full w-full rounded-[inherit]">
                         <div className="px-4">
-                            <ul>
+                            <ul className="grid gap-3">
                                 {currentSubMenu.map((childItem, j) => {
                                     return (
                                         <li key={j}>
-                                            <h2>{childItem.title}</h2>
+                                            <Link className="text-sm font-normal text-muted-foreground">
+                                                {childItem.title}
+                                            </Link>
                                         </li>
                                     );
                                 })}
@@ -89,7 +92,7 @@ const AdminSidebar = () => {
                     </ScrollArea>
                 </div>
             </div>
-        </div>
+        </aside>
     );
 };
 

@@ -12,17 +12,14 @@ export const menusConfig = {
         {
             title: "Home",
             icon: Home,
-            href: "/dashboard",
         },
         {
             title: "Gym",
             icon: Gym,
-            href: "/gym",
         },
         {
             title: "Members",
             icon: Members,
-            href: "#",
             child: [
                 {
                     title: "All Members (Trainees)",
@@ -44,17 +41,14 @@ export const menusConfig = {
         {
             title: "Business",
             icon: Business,
-            href: "/",
         },
         {
             title: "Message",
             icon: Message,
-            href: "/",
         },
         {
             title: "Settings",
             icon: Settings,
-            href: "/",
         },
     ],
 };
