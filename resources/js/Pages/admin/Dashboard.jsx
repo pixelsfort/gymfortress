@@ -1,3 +1,4 @@
+import AdminMianWrap from "@/Components/Dashboard/AdminMianWrap";
 import MemberReport from "@/Components/Dashboard/Report-chart/MemberReport";
 import Report from "@/Components/Dashboard/Report-chart/Report";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";

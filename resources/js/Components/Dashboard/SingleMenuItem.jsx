@@ -7,7 +7,6 @@ function SingleMenuItem({ item }) {
     const { openSidebar } = useContext(SidebarContext);
 
     const currentPath = window.location.pathname;
-    console.log(currentPath);
     return (
         <div
             className={`flex h-[56px] w-[56px] flex-1 cursor-pointer flex-col items-center justify-center gap-1 rounded p-4 hover:bg-primary hover:text-primary-foreground ${currentPath === item.href ? "bg-primary" : ""} `}

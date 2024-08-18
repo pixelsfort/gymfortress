@@ -1,40 +1,88 @@
-import { RiMenu2Line } from "react-icons/ri";
-import { MdOutlineNotificationsActive } from "react-icons/md";
-import Dropdown from "../Dropdown/Dropdown";
 import { SidebarContext } from "@/Context/SidebarContext";
-import React, { useContext } from "react";
-import { IoChevronBackSharp } from "react-icons/io5";
+import { cn } from "@/lib/utils";
+import { useContext } from "react";
+import { FiSearch } from "react-icons/fi";
+import { MdOutlineNotificationsActive } from "react-icons/md";
+import {
+    TbLayoutSidebarRightCollapseFilled,
+    TbLayoutSidebarRightExpandFilled,
+} from "react-icons/tb";
+import Dropdown from "../Dropdown/Dropdown";
+import ThemeButton from "./ThemeButton";
+import { Button } from "../ui/button";
+import {
+    AlertDialog,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogTrigger,
+} from "../ui/alert-dialog";
+
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "../ui/dialog";
+import SearchBox from "./SearchBox";
 
 const AdminHeader = ({ user, header, children }) => {
     const { toggleSidebar } = useContext(SidebarContext);
     const { isSidebarOpen } = useContext(SidebarContext);
 
     return (
-        <header id="header" className="sticky top-0 z-50 xl:ml-[300px]">
+        <header
+            id="header"
+            className={cn("sticky top-0 z-50", {
+                "xl:ml-[300px]": !isSidebarOpen,
+                "xl:ml-[72px]": isSidebarOpen,
+            })}
+        >
             <div className="w-full border-b bg-card/90 px-[15px] py-3 backdrop-blur-lg md:px-6">
                 <div className="flex h-full items-center justify-between">
-                    <div className="flex items-center gap-3 md:gap-6">
+                    <div className="flex items-center gap-3 md:gap-4">
                         {isSidebarOpen ? (
-                            <IoChevronBackSharp
-                                className="h-6 w-6 cursor-pointer"
+                            <TbLayoutSidebarRightCollapseFilled
+                                className="h-7 w-7 cursor-pointer opacity-65 hover:opacity-100"
                                 onClick={toggleSidebar}
                             />
                         ) : (
-                            <RiMenu2Line
-                                className="h-6 w-6 cursor-pointer"
+                            <TbLayoutSidebarRightExpandFilled
+                                className="h-7 w-7 cursor-pointer opacity-65 hover:opacity-100"
                                 onClick={toggleSidebar}
                             />
                         )}
-
-                        <h1>Header</h1>
+                        <div className="mt-1">
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <button className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+                                        <FiSearch className="text-lg" />
+                                        <span className="hidden font-medium md:block">
+                                            Search..
+                                        </span>
+                                    </button>
+                                </DialogTrigger>
+                                <DialogContent className="top-20">
+                                    <DialogTitle className="hidden">
+                                        Search
+                                    </DialogTitle>
+                                    <DialogDescription className="hidden"></DialogDescription>
+                                    <DialogDescription asChild>
+                                        <SearchBox />
+                                    </DialogDescription>
+                                </DialogContent>
+                            </Dialog>
+                        </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <button className="hover:bg-default-100 dark:hover:bg-default-200 data-[state=open]:bg-default-100 dark:data-[state=open]:bg-default-200 text-default-500 dark:text-default-800 relative inline-flex h-8 w-8 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-sm font-semibold ring-offset-background transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-0 disabled:pointer-events-none disabled:opacity-50 md:h-9 md:w-9">
+                        <button className="relative inline-flex h-8 w-8 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-sm font-semibold ring-offset-background transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-0 md:h-9 md:w-9">
                             <MdOutlineNotificationsActive className="h-6 w-6" />
                             <div className="absolute bottom-[calc(100%-16px)] left-[calc(100%-18px)] inline-flex h-4 w-4 items-center justify-center rounded-full border border-transparent bg-primary p-0 text-xs font-medium text-primary-foreground ring-2 ring-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                                 6
                             </div>
                         </button>
+                        <ThemeButton />
                         <Dropdown>
                             <Dropdown.Trigger>
                                 <span className="inline-flex rounded-md">
