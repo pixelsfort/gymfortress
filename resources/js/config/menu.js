@@ -22,25 +22,32 @@ export const menusConfig = {
             icon: Members,
             child: [
                 {
-                    title: "All Members (Trainees)",
-                    icon: "",
-                    href: "/",
+                    title: "All Members",
+                    icon: Members,
+                    href: "/members",
                 },
                 {
-                    title: "Add Members (Trainee)",
-                    icon: "",
-                    path: "/",
+                    title: "Add New Member",
+                    icon: Members,
+                    href: "/add-member",
                 },
                 {
                     title: "Dropped Members",
-                    icon: "",
-                    path: "/",
+                    icon: Members,
+                    href: "/dropped-members",
                 },
             ],
         },
         {
             title: "Business",
             icon: Business,
+            child: [
+                {
+                    title: "Reports",
+                    icon: Business,
+                    href: "/reports",
+                },
+            ],
         },
         {
             title: "Message",

@@ -1,11 +1,13 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 
-export default function Members({ auth }) {
+const DroppedMembers = ({ auth }) => {
     return (
         <AuthenticatedLayout auth={auth}>
-            <Head title="All Members" />
-            <h1>Members</h1>
+            <Head title="Dropped Members List" />
+            <h1>Dropped Members</h1>
         </AuthenticatedLayout>
     );
-}
+};
+
+export default DroppedMembers;

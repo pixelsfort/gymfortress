@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 import { Link } from "@inertiajs/react";
 const menus = menusConfig?.sidebarNav || [];
 
+const currentPath = window.location.pathname;
+
 const AdminSidebar = () => {
     const [activeIndex, setActiveIndex] = useState(null);
     const [currentSubMenu, setCurrentSubMenu] = useState([]);
-    const [seubMenu, setSubmenu] = useState(true);
-    const [collapsed, setCollapsed] = useState(true);
 
     const { isSidebarOpen } = useContext(SidebarContext);
 
@@ -22,11 +22,7 @@ const AdminSidebar = () => {
         setActiveIndex(index);
         if (menus[index].child) {
             setCurrentSubMenu(menus[index].child);
-            setSubmenu(false);
-            setCollapsed(false);
         } else {
-            setSubmenu(true);
-            setCollapsed(true);
         }
     };
 
@@ -75,12 +71,27 @@ const AdminSidebar = () => {
                 <div className="relative h-[calc(100%-40px)] grow overflow-hidden">
                     <ScrollArea className="h-full w-full rounded-[inherit]">
                         <div className="px-4">
-                            <ul className="grid gap-3">
+                            <ul className="grid gap-1">
                                 {currentSubMenu.map((childItem, j) => {
                                     return (
                                         <li key={j}>
-                                            <Link className="text-sm font-normal text-muted-foreground">
-                                                {childItem.title}
+                                            <Link
+                                                href={childItem.href}
+                                                className={cn(
+                                                    "flex cursor-pointer gap-3 rounded-md px-[10px] py-3 text-sm font-normal capitalize text-muted-foreground hover:bg-primary hover:text-card",
+                                                    {
+                                                        "bg-primary text-card":
+                                                            currentPath ===
+                                                            childItem.href,
+                                                    },
+                                                )}
+                                            >
+                                                <span className="inline-flex flex-grow-0 items-center">
+                                                    <childItem.icon />
+                                                </span>
+                                                <div className="flex-grow truncate">
+                                                    {childItem.title}
+                                                </div>
                                             </Link>
                                         </li>
                                     );

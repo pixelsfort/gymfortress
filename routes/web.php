@@ -29,5 +29,13 @@ Route::get('/members', function () {
     return Inertia::render('admin/Member/Members');
 })->middleware(['auth', 'verified'])->name('members');
 
+Route::get('/add-member', function () {
+    return Inertia::render('admin/Member/AddMember');
+})->middleware(['auth', 'verified'])->name('add-member');
+
+Route::get('/dropped-members', function () {
+    return Inertia::render('admin/Member/DroppedMembers');
+})->middleware(['auth', 'verified'])->name('droped-members');
+
 
 require __DIR__.'/auth.php';
