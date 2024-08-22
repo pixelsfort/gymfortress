@@ -10,7 +10,7 @@ import { useContext } from "react";
 export default function Authenticated({ user, header, children }) {
     return (
         <ThemeProvider>
-            <div className="min-h-screen bg-muted">
+            <div className="min-h-screen">
                 <SidebarProvider>
                     <AdminHeader />
                     <AdminSidebar />

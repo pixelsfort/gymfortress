@@ -13,9 +13,19 @@ import {
     BreadcrumbItem,
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
+
 import { IoHome } from "react-icons/io5";
 import { Label } from "@/Components/ui/label";
 import { Input } from "@/Components/ui/input";
+import { ImUser } from "react-icons/im";
+import InputIcon from "@/Components/ui/input-icon";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "../../../Components/ui/select";
 
 const AddMember = ({ auth }) => {
     return (
@@ -53,18 +63,67 @@ const AddMember = ({ auth }) => {
                     </CardHeader>
                     <CardContent>
                         <form>
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="col-span-2 flex flex-col gap-2">
-                                    <Label htmlFor="viFullName3">
-                                        Full Name
-                                    </Label>
-                                    <div className="input-group merged group relative flex w-full flex-wrap items-stretch ltr:flex-row rtl:flex-row-reverse">
-                                        <div className="border-default-300 text-default-500 flex items-center justify-center border bg-background px-3 text-sm font-normal ring-primary transition duration-300 first:rounded-l-md first:border-r-0 last:rounded-r-md last:border-l-0 group-focus-within:border-primary">
-                                            icon
-                                        </div>
+                            <div className="grid grid-cols-3 gap-4">
+                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="fname">First Name</Label>
+                                    <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                        <InputIcon>
+                                            <ImUser />
+                                        </InputIcon>
                                         <div className="w-full flex-1">
-                                            <Input />
-                                            <div data-lastpass-icon-root=""></div>
+                                            <Input
+                                                type="text"
+                                                id="fname"
+                                                name="fname"
+                                                onChange={""}
+                                                placeholder="First name"
+                                                className="focus:border-1 rounded-lg rounded-l-none border border-l-0 bg-background px-3 transition duration-300 placeholder:text-xs placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-0 focus:ring-transparent"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="lname">Last Name</Label>
+                                    <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                        <InputIcon>
+                                            <ImUser />
+                                        </InputIcon>
+                                        <div className="w-full flex-1">
+                                            <Input
+                                                type="text"
+                                                id="lname"
+                                                name="lname"
+                                                onChange={""}
+                                                placeholder="Last name"
+                                                className="focus:border-1 rounded-lg rounded-l-none border border-l-0 bg-background px-3 transition duration-300 placeholder:text-xs placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-0 focus:ring-transparent"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="gender">Gender</Label>
+                                    <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                        <InputIcon>
+                                            <ImUser />
+                                        </InputIcon>
+                                        <div className="w-full flex-1">
+                                            <Select className="">
+                                                <SelectTrigger className="rounded-l-none border border-l-0">
+                                                    <SelectValue placeholder="male" />
+                                                </SelectTrigger>
+
+                                                <SelectContent>
+                                                    <SelectItem value="male">
+                                                        Male
+                                                    </SelectItem>
+                                                    <SelectItem value="female">
+                                                        Female
+                                                    </SelectItem>
+                                                    <SelectItem value="other">
+                                                        Other
+                                                    </SelectItem>
+                                                </SelectContent>
+                                            </Select>
                                         </div>
                                     </div>
                                 </div>

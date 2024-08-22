@@ -7,6 +7,7 @@ module.exports = {
         "./components/**/*.{js,jsx}",
         "./app/**/*.{js,jsx}",
         "./resources/js/**/*.{js,jsx}",
+        "./resources/views/**/*.{php}",
     ],
     prefix: "",
     theme: {
