@@ -15,6 +15,7 @@ export default function Dashboard({ auth }) {
             }
         >
             <Head title="Dashboard" />
+
             <div className="space-y-6">
                 {/* Page Title */}
                 <div className="flex flex-wrap items-center justify-between gap-4">

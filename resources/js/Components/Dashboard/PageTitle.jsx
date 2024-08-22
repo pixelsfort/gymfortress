@@ -1,19 +1,10 @@
 import React from "react";
-import {
-    BreadcrumbList,
-    BreadcrumbItem,
-    BreadcrumbSeparator,
-} from "../ui/breadcrumb";
 
-const PageTitle = ({ title }) => {
+const PageTitle = ({ title, children }) => {
     return (
         <div className="mb-7 flex flex-wrap">
-            <div className="flex-1 text-xl font-medium">{title}</div>
-            <BreadcrumbList>
-                <BreadcrumbItem>Members</BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>Add New Member</BreadcrumbItem>
-            </BreadcrumbList>
+            {title && <h1 className="flex-1 text-xl font-medium">{title}</h1>}
+            {children}
         </div>
     );
 };
