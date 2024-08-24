@@ -36,7 +36,10 @@ const AdminSidebar = () => {
     return (
         <aside
             id="app-sidebar"
-            className="main-sidebar pointer-events-none fixed start-0 top-0 z-[60] flex h-full xl:z-10 print:hidden"
+            className={cn(
+                "pointer-events-none fixed start-0 top-0 z-[60] hidden h-full md:flex xl:z-10",
+                { flex: isSidebarOpen },
+            )}
         >
             <div className="pointer-events-auto relative z-20 flex h-full w-[72px] flex-col border-r border-dashed bg-card transition-all duration-300">
                 <div className="max-h-[72px] p-4">

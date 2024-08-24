@@ -87,7 +87,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border focus:outline-primary;
   }
 
   html {
@@ -105,5 +105,14 @@
   h5,
   h6 {
     @apply font-inter font-semibold;
+  }
+
+  /* Forms Style */
+  * {
+    @apply focus:outline-primary;
+  }
+
+  .react-tel-input input.phone-input {
+    @apply h-10 w-full border bg-background text-base ring-offset-background;
   }
 }
