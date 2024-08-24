@@ -95,7 +95,7 @@
   }
 
   body {
-    @apply bg-background dark:bg-background text-foreground font-inter selection:bg-primary selection:text-card;
+    @apply bg-background dark:bg-background text-foreground font-inter selection:bg-primary selection:text-card dark:selection:text-white;
   }
 
   h1,
@@ -108,9 +108,6 @@
   }
 
   /* Forms Style */
-  * {
-    @apply focus:outline-primary;
-  }
 
   .react-tel-input input.phone-input {
     @apply h-10 w-full border bg-background text-base ring-offset-background;

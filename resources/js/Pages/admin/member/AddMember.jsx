@@ -24,7 +24,7 @@ import {
     PopoverTrigger,
 } from "@/Components/ui/popover";
 import {
-    Select,
+    Select as SelectIn,
     SelectContent,
     SelectItem,
     SelectTrigger,
@@ -39,6 +39,11 @@ import "react-phone-input-2/lib/style.css";
 import { format } from "date-fns";
 import { PiBuildingsFill } from "react-icons/pi";
 import { TbZip } from "react-icons/tb";
+
+import { countriesConfig } from "@/config/country";
+import Select from "react-select";
+
+const countries = countriesConfig?.CountryList || [];
 
 const AddMember = ({ auth }) => {
     const [date, setDate] = useState();
@@ -119,7 +124,7 @@ const AddMember = ({ auth }) => {
                                             <MdTransgender />
                                         </InputIcon>
                                         <div className="w-full flex-1">
-                                            <Select className="">
+                                            <SelectIn className="">
                                                 <SelectTrigger className="rounded-l-none border border-l-0">
                                                     <SelectValue placeholder="..." />
                                                 </SelectTrigger>
@@ -135,7 +140,7 @@ const AddMember = ({ auth }) => {
                                                         Other
                                                     </SelectItem>
                                                 </SelectContent>
-                                            </Select>
+                                            </SelectIn>
                                         </div>
                                     </div>
                                 </div>
@@ -297,49 +302,28 @@ const AddMember = ({ auth }) => {
                                             <BsGlobeCentralSouthAsia />
                                         </InputIcon>
                                         <div className="w-full flex-1">
-                                            <Input
-                                                type="text"
-                                                id="country"
-                                                name="country"
-                                                placeholder="Country"
-                                                className=""
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
-                                    <Label htmlFor="gender">
-                                        Date of Birth
-                                    </Label>
-                                    <div className="group relative flex w-full flex-row flex-wrap items-stretch">
-                                        <InputIcon>
-                                            <FaCalendarDays />
-                                        </InputIcon>
-                                        <div className="w-full flex-1">
-                                            <Popover>
-                                                <PopoverTrigger asChild>
-                                                    <Input
-                                                        type="text"
-                                                        value={
-                                                            date
-                                                                ? format(
-                                                                      date,
-                                                                      "PP",
-                                                                  )
-                                                                : "Pick a date"
-                                                        }
-                                                        className="cursor-pointer"
-                                                        placeholder="Pick a date"
-                                                    />
-                                                </PopoverTrigger>
-                                                <PopoverContent className="top-0 w-auto">
-                                                    <Calendar
-                                                        mode="single"
-                                                        selected={date}
-                                                        onSelect={setDate}
-                                                    />
-                                                </PopoverContent>
-                                            </Popover>
+                                            <SelectIn className="">
+                                                <SelectTrigger className="rounded-l-none border border-l-0">
+                                                    <SelectValue placeholder="-- Select Country --" />
+                                                </SelectTrigger>
+
+                                                <SelectContent>
+                                                    {countries.map(
+                                                        (country, i) => {
+                                                            return (
+                                                                <SelectItem
+                                                                    value="male"
+                                                                    key={i}
+                                                                >
+                                                                    {
+                                                                        country.name
+                                                                    }
+                                                                </SelectItem>
+                                                            );
+                                                        },
+                                                    )}
+                                                </SelectContent>
+                                            </SelectIn>
                                         </div>
                                     </div>
                                 </div>
