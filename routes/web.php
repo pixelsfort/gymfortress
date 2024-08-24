@@ -15,7 +15,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('admin/Dashboard');
+    return Inertia::render('Admin/Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -26,15 +26,15 @@ Route::middleware('auth')->group(function () {
 
 // Members Route
 Route::get('/members', function () {
-    return Inertia::render('admin/Member/Members');
+    return Inertia::render('Admin/Member/Members');
 })->middleware(['auth', 'verified'])->name('members');
 
 Route::get('/add-member', function () {
-    return Inertia::render('admin/Member/AddMember');
+    return Inertia::render('Admin/Member/AddMember');
 })->middleware(['auth', 'verified'])->name('add-member');
 
 Route::get('/dropped-members', function () {
-    return Inertia::render('admin/Member/DroppedMembers');
+    return Inertia::render('Admin/Member/DroppedMembers');
 })->middleware(['auth', 'verified'])->name('droped-members');
 
 
