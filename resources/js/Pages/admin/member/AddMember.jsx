@@ -474,11 +474,11 @@ const AddMember = ({ auth }) => {
                                                         {memberships.length <
                                                         1 ? (
                                                             <Link
-                                                                href="/dashboard"
+                                                                href="/add-trainer"
                                                                 className="flex w-full items-center gap-2 bg-muted px-3 py-2 text-sm text-primary hover:underline hover:underline-offset-2"
                                                             >
                                                                 <BiSolidAddToQueue />{" "}
-                                                                Create new plan
+                                                                Add new trainer
                                                             </Link>
                                                         ) : (
                                                             <>
