@@ -38,4 +38,9 @@ Route::get('/dropped-members', function () {
 })->middleware(['auth', 'verified'])->name('droped-members');
 
 
+// Trainers Route
+Route::get('/trainers', function () {
+    return Inertia::render('Admin/Trainer/Trainers');
+})->middleware(['auth', 'verified'])->name('trainers');
+
 require __DIR__.'/auth.php';

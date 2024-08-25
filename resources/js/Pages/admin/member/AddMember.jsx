@@ -7,15 +7,25 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link } from "@inertiajs/react";
-import { BsGlobeCentralSouthAsia } from "react-icons/bs";
+import { BsFillInfoCircleFill, BsGlobeCentralSouthAsia } from "react-icons/bs";
 
 import { Input } from "@/Components/ui/input";
 import InputIcon from "@/Components/ui/input-icon";
 import { Label } from "@/Components/ui/label";
-import { FaCalendarDays, FaMapLocation } from "react-icons/fa6";
+import {
+    FaCalendarDays,
+    FaHourglassStart,
+    FaIdCardClip,
+    FaMapLocation,
+    FaPeoplePulling,
+    FaUserLock,
+} from "react-icons/fa6";
 import { ImUser } from "react-icons/im";
-import { IoHome } from "react-icons/io5";
+import { IoHome, IoPersonSharp } from "react-icons/io5";
 import { RiMapPin2Fill } from "react-icons/ri";
+import { RxReset } from "react-icons/rx";
+import { BiSolidAddToQueue } from "react-icons/bi";
+import { IoIosFitness } from "react-icons/io";
 
 import { Calendar } from "@/Components/ui/calendar";
 import {
@@ -24,33 +34,36 @@ import {
     PopoverTrigger,
 } from "@/Components/ui/popover";
 import {
-    Select as SelectIn,
     SelectContent,
+    Select as SelectIn,
     SelectItem,
     SelectTrigger,
     SelectValue,
 } from "@/Components/ui/select";
 import { useState } from "react";
-import { FaEnvelopeOpenText } from "react-icons/fa";
+import { FaEnvelopeOpenText, FaSave } from "react-icons/fa";
 import { MdTransgender } from "react-icons/md";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 import { format } from "date-fns";
-import { PiBuildingsFill } from "react-icons/pi";
+import { PiBuildingsFill, PiPasswordFill } from "react-icons/pi";
 import { TbZip } from "react-icons/tb";
 
+import { Button } from "@/Components/ui/button";
 import { countriesConfig } from "@/config/country";
-import Select from "react-select";
+import { membershipConfig } from "@/config/membership-plan";
 
 const countries = countriesConfig?.CountryList || [];
+const memberships = membershipConfig?.MembershipPlans || [];
 
 const AddMember = ({ auth }) => {
     const [date, setDate] = useState();
+
     return (
         <AuthenticatedLayout auth={auth}>
             <Head title="All Members" />
-            <PageTitle>
+            <PageTitle title="Member Signup">
                 <BreadcrumbList>
                     <BreadcrumbItem>
                         <Link
@@ -76,15 +89,21 @@ const AddMember = ({ auth }) => {
                 </BreadcrumbList>
             </PageTitle>
             <div>
-                <form className="space-y-5">
+                <form className="space-y-6">
+                    {/* Persoal Details */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>Add new Member</CardTitle>
+                            <CardTitle>Personal Details</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="grid grid-cols-3 gap-4">
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
-                                    <Label htmlFor="fname">First Name</Label>
+                            <div className="grid grid-cols-4 gap-4">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="fname">
+                                        First Name
+                                        <sup className="text-destructive">
+                                            *
+                                        </sup>
+                                    </Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <InputIcon>
                                             <ImUser />
@@ -95,13 +114,18 @@ const AddMember = ({ auth }) => {
                                                 id="fname"
                                                 name="fname"
                                                 placeholder="First Name"
-                                                className=""
+                                                className="capitalize"
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
-                                    <Label htmlFor="lname">Last Name</Label>
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="lname">
+                                        Last Name
+                                        <sup className="text-destructive">
+                                            *
+                                        </sup>
+                                    </Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <InputIcon>
                                             <ImUser />
@@ -112,13 +136,18 @@ const AddMember = ({ auth }) => {
                                                 id="lname"
                                                 name="lname"
                                                 placeholder="Last Name"
-                                                className=""
+                                                className="capitalize"
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
-                                    <Label htmlFor="gender">Gender</Label>
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="gender">
+                                        Gender
+                                        <sup className="text-destructive">
+                                            *
+                                        </sup>
+                                    </Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <InputIcon>
                                             <MdTransgender />
@@ -144,7 +173,7 @@ const AddMember = ({ auth }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
                                     <Label htmlFor="lname">Email</Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <InputIcon>
@@ -156,13 +185,18 @@ const AddMember = ({ auth }) => {
                                                 id="email"
                                                 name="email"
                                                 placeholder="Email Address"
-                                                className=""
+                                                className="lowercase"
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
-                                    <Label htmlFor="gender">Phone</Label>
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="gender">
+                                        Phone
+                                        <sup className="text-destructive">
+                                            *
+                                        </sup>
+                                    </Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <div className="w-full flex-1">
                                             <PhoneInput
@@ -178,7 +212,7 @@ const AddMember = ({ auth }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
                                     <Label htmlFor="gender">
                                         Date of Birth
                                     </Label>
@@ -214,16 +248,34 @@ const AddMember = ({ auth }) => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
+                                    <Label htmlFor="age">Age</Label>
+                                    <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                        <InputIcon>
+                                            <FaHourglassStart />
+                                        </InputIcon>
+                                        <div className="w-full flex-1">
+                                            <Input
+                                                type="text"
+                                                disabled
+                                                className="bg-muted"
+                                                placeholder="##"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </CardContent>
                     </Card>
+
+                    {/* Address */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>Address</CardTitle>
+                            <CardTitle>Address Details</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="grid grid-cols-3 gap-4">
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                            <div className="grid grid-cols-4 gap-4">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
                                     <Label htmlFor="street-address">
                                         Street Address
                                     </Label>
@@ -242,7 +294,7 @@ const AddMember = ({ auth }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
                                     <Label htmlFor="lname">City/District</Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <InputIcon>
@@ -253,13 +305,13 @@ const AddMember = ({ auth }) => {
                                                 type="text"
                                                 id="lname"
                                                 name="lname"
-                                                placeholder="Last Name"
+                                                placeholder="City / District"
                                                 className=""
                                             />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
                                     <Label htmlFor="state">
                                         State / Province
                                     </Label>
@@ -278,7 +330,7 @@ const AddMember = ({ auth }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
                                     <Label htmlFor="zip">Zip/Postal Code</Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <InputIcon>
@@ -295,7 +347,7 @@ const AddMember = ({ auth }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-span-3 flex flex-col gap-2 lg:col-span-1">
+                                <div className="col-span-4 flex flex-col gap-2 lg:col-span-1">
                                     <Label htmlFor="country">Country</Label>
                                     <div className="group relative flex w-full flex-row flex-wrap items-stretch">
                                         <InputIcon>
@@ -304,7 +356,10 @@ const AddMember = ({ auth }) => {
                                         <div className="w-full flex-1">
                                             <SelectIn className="">
                                                 <SelectTrigger className="rounded-l-none border border-l-0">
-                                                    <SelectValue placeholder="-- Select Country --" />
+                                                    <SelectValue
+                                                        placeholder="-- Select Country --"
+                                                        className="text-muted-foreground"
+                                                    />
                                                 </SelectTrigger>
 
                                                 <SelectContent>
@@ -312,7 +367,9 @@ const AddMember = ({ auth }) => {
                                                         (country, i) => {
                                                             return (
                                                                 <SelectItem
-                                                                    value="male"
+                                                                    value={
+                                                                        country.name
+                                                                    }
                                                                     key={i}
                                                                 >
                                                                     {
@@ -330,6 +387,317 @@ const AddMember = ({ auth }) => {
                             </div>
                         </CardContent>
                     </Card>
+
+                    {/* Membership Details */}
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Membership Details</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid grid-cols-4 gap-4">
+                                    <div className="col-span-4 flex flex-col gap-2 lg:col-span-2">
+                                        <Label htmlFor="membership">
+                                            Membership Plan
+                                            <sup className="text-destructive">
+                                                *
+                                            </sup>
+                                        </Label>
+                                        <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                            <InputIcon>
+                                                <FaIdCardClip />
+                                            </InputIcon>
+                                            <div className="w-full flex-1">
+                                                <SelectIn className="">
+                                                    <SelectTrigger className="rounded-l-none border border-l-0">
+                                                        <SelectValue placeholder="-- Membership Plan --" />
+                                                    </SelectTrigger>
+
+                                                    <SelectContent>
+                                                        {memberships.length <
+                                                        1 ? (
+                                                            <Link
+                                                                href="/dashboard"
+                                                                className="flex w-full items-center gap-2 bg-muted px-3 py-2 text-sm text-primary hover:underline hover:underline-offset-2"
+                                                            >
+                                                                <BiSolidAddToQueue />{" "}
+                                                                Create new plan
+                                                            </Link>
+                                                        ) : (
+                                                            <>
+                                                                {memberships.map(
+                                                                    (
+                                                                        membership,
+                                                                        j,
+                                                                    ) => {
+                                                                        return (
+                                                                            <SelectItem
+                                                                                value={
+                                                                                    membership.title
+                                                                                }
+                                                                                key={
+                                                                                    j
+                                                                                }
+                                                                            >
+                                                                                {
+                                                                                    membership.title
+                                                                                }
+                                                                            </SelectItem>
+                                                                        );
+                                                                    },
+                                                                )}
+                                                            </>
+                                                        )}
+                                                    </SelectContent>
+                                                </SelectIn>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-4 flex flex-col gap-2 lg:col-span-2">
+                                        <Label htmlFor="trainer">
+                                            Personal Trainer
+                                            <sup className="text-destructive">
+                                                *
+                                            </sup>
+                                        </Label>
+                                        <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                            <InputIcon>
+                                                <IoPersonSharp />
+                                            </InputIcon>
+                                            <div className="w-full flex-1">
+                                                <SelectIn className="">
+                                                    <SelectTrigger className="rounded-l-none border border-l-0">
+                                                        <SelectValue placeholder="-- Select Trainer --" />
+                                                    </SelectTrigger>
+
+                                                    <SelectContent>
+                                                        {memberships.length <
+                                                        1 ? (
+                                                            <Link
+                                                                href="/dashboard"
+                                                                className="flex w-full items-center gap-2 bg-muted px-3 py-2 text-sm text-primary hover:underline hover:underline-offset-2"
+                                                            >
+                                                                <BiSolidAddToQueue />{" "}
+                                                                Create new plan
+                                                            </Link>
+                                                        ) : (
+                                                            <>
+                                                                {memberships.map(
+                                                                    (
+                                                                        membership,
+                                                                        j,
+                                                                    ) => {
+                                                                        return (
+                                                                            <SelectItem
+                                                                                value={
+                                                                                    membership.title
+                                                                                }
+                                                                                key={
+                                                                                    j
+                                                                                }
+                                                                            >
+                                                                                {
+                                                                                    membership.title
+                                                                                }
+                                                                            </SelectItem>
+                                                                        );
+                                                                    },
+                                                                )}
+                                                            </>
+                                                        )}
+                                                    </SelectContent>
+                                                </SelectIn>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* How did you hear about us */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>
+                                    How did you hear about us?
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid grid-cols-4 gap-4">
+                                    <div className="col-span-4 flex flex-col gap-2 lg:col-span-3">
+                                        <Label htmlFor="knowus">
+                                            How did you know us?
+                                        </Label>
+                                        <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                            <InputIcon>
+                                                <BsFillInfoCircleFill />
+                                            </InputIcon>
+                                            <div className="w-full flex-1">
+                                                <SelectIn className="">
+                                                    <SelectTrigger className="rounded-l-none border border-l-0">
+                                                        <SelectValue placeholder="-- (Optional) Slect --" />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        <SelectItem value="Search Engine">
+                                                            Search Engine
+                                                            (Google, Bing, etc)
+                                                        </SelectItem>
+                                                        <SelectItem value="Google Maps">
+                                                            Google Maps Search
+                                                        </SelectItem>
+                                                        <SelectItem value="Social Media">
+                                                            Social Media
+                                                        </SelectItem>
+                                                        <SelectItem value="Referrale">
+                                                            Referral
+                                                        </SelectItem>
+                                                        <SelectItem value="Events">
+                                                            Events
+                                                        </SelectItem>
+                                                    </SelectContent>
+                                                </SelectIn>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    {/* Password */}
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                        {/* Password */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Account Password</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid grid-cols-4 gap-4">
+                                    <div className="col-span-4 flex flex-col gap-2 lg:col-span-2">
+                                        <Label htmlFor="password">
+                                            Enter Password{" "}
+                                            <sup className="text-destructive">
+                                                *
+                                            </sup>
+                                        </Label>
+                                        <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                            <InputIcon>
+                                                <FaUserLock />
+                                            </InputIcon>
+                                            <div className="w-full flex-1">
+                                                <Input
+                                                    type="password"
+                                                    id="password"
+                                                    name="password"
+                                                    placeholder="Password"
+                                                    className=""
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-4 flex flex-col gap-2 lg:col-span-2">
+                                        <Label htmlFor="cpassword">
+                                            Confirm Password{" "}
+                                            <sup className="text-destructive">
+                                                *
+                                            </sup>
+                                        </Label>
+                                        <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                            <InputIcon>
+                                                <FaUserLock />
+                                            </InputIcon>
+                                            <div className="w-full flex-1">
+                                                <Input
+                                                    type="password"
+                                                    id="cpassword"
+                                                    name="cpassword"
+                                                    placeholder="Confirm Password"
+                                                    className=""
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Emergency Contact */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Emergency Contacts</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid grid-cols-4 gap-4">
+                                    <div className="col-span-4 flex flex-col gap-2 lg:col-span-2">
+                                        <Label htmlFor="gender">
+                                            Phone Number
+                                        </Label>
+                                        <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                            <div className="w-full flex-1">
+                                                <PhoneInput
+                                                    inputProps={{
+                                                        name: "phone",
+                                                        required: true,
+                                                        autoFocus: false,
+                                                    }}
+                                                    country={"np"}
+                                                    inputClass="phone-input"
+                                                    className="h-10"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-4 flex flex-col gap-2 lg:col-span-2">
+                                        <Label htmlFor="relation">
+                                            Relation
+                                        </Label>
+                                        <div className="group relative flex w-full flex-row flex-wrap items-stretch">
+                                            <InputIcon>
+                                                <FaPeoplePulling />
+                                            </InputIcon>
+                                            <div className="w-full flex-1">
+                                                <SelectIn className="">
+                                                    <SelectTrigger className="rounded-l-none border border-l-0">
+                                                        <SelectValue placeholder="-- (Optional) Slect --" />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        <SelectItem value="Parent">
+                                                            Parent
+                                                        </SelectItem>
+                                                        <SelectItem value="Spouse">
+                                                            Spouse
+                                                        </SelectItem>
+                                                        <SelectItem value="Sibiling">
+                                                            Sibiling
+                                                        </SelectItem>
+                                                        <SelectItem value="Family Member">
+                                                            Family Member
+                                                        </SelectItem>
+                                                        <SelectItem value="Friend">
+                                                            Friend
+                                                        </SelectItem>
+                                                    </SelectContent>
+                                                </SelectIn>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    {/* Submit Form */}
+                    <div className="sticky bottom-0 flex items-center gap-2 rounded-lg border border-border bg-background p-6">
+                        <Button type="submit" className="gap-2 uppercase">
+                            <FaSave /> Complete Signup
+                        </Button>
+                        <Button
+                            type="reset"
+                            variant="ghost"
+                            className="gap-2 uppercase"
+                        >
+                            <RxReset /> Reset
+                        </Button>
+                    </div>
                 </form>
             </div>
         </AuthenticatedLayout>
