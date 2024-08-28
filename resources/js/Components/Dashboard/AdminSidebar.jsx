@@ -6,17 +6,15 @@ import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "@/Context/SidebarContext";
 import { cn } from "@/lib/utils";
 import { Link } from "@inertiajs/react";
-const menus = menusConfig?.sidebarNav || [];
 
 const currentPath = window.location.pathname;
 
 const AdminSidebar = () => {
+    const menus = menusConfig?.sidebarNav || [];
     const [activeIndex, setActiveIndex] = useState(null);
     const [currentSubMenu, setCurrentSubMenu] = useState([]);
 
     const { isSidebarOpen } = useContext(SidebarContext);
-
-    useEffect(() => {}, []);
 
     const toggleSubMenu = (index) => {
         setActiveIndex(index);
@@ -43,7 +41,7 @@ const AdminSidebar = () => {
         >
             <div className="pointer-events-auto relative z-20 flex h-full w-[72px] flex-col border-r border-dashed bg-card transition-all duration-300">
                 <div className="max-h-[72px] p-4">
-                    <ApplicationLogo className="w-8 h-8 text-primary" />
+                    <ApplicationLogo className="h-8 w-8 text-primary" />
                 </div>
 
                 <ScrollArea className="flex h-[100vh] justify-center pt-2">
@@ -68,7 +66,7 @@ const AdminSidebar = () => {
                     { "translate-x-[calc(-100%_-_72px)]": isSidebarOpen },
                 )}
             >
-                <h1 className="sticky top-0 z-50 flex items-center gap-4 px-4 py-4 text-lg font-semibold capitalize bg-transparent">
+                <h1 className="sticky top-0 z-50 flex items-center gap-4 bg-transparent px-4 py-4 text-lg font-semibold capitalize">
                     {getMenuTitle()}
                 </h1>
                 <div className="relative h-[calc(100%-40px)] grow overflow-hidden">
@@ -89,7 +87,7 @@ const AdminSidebar = () => {
                                                     },
                                                 )}
                                             >
-                                                <span className="inline-flex items-center flex-grow-0">
+                                                <span className="inline-flex flex-grow-0 items-center">
                                                     <childItem.icon />
                                                 </span>
                                                 <div className="flex-grow truncate">

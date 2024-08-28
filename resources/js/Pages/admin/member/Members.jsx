@@ -1,6 +1,7 @@
 import PageTitle from "@/Components/Dashboard/PageTitle";
 import {
     Card,
+    CardContent,
     CardDescription,
     CardHeader,
     CardTitle,
@@ -13,6 +14,7 @@ import {
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
 import { IoHome } from "react-icons/io5";
+import DataTable from "./Components/data-table";
 
 export default function Members({ auth }) {
     return (
@@ -39,6 +41,9 @@ export default function Members({ auth }) {
                     <CardHeader>
                         <CardTitle>All Members</CardTitle>
                     </CardHeader>
+                    <CardContent>
+                        <DataTable />
+                    </CardContent>
                 </Card>
             </div>
         </AuthenticatedLayout>
