@@ -14,6 +14,23 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('firstname');
+            $table->string('lastname');
+            $table->string('gender')->nullable();
+            $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('street_address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('country')->nullable();
+            $table->string('hear_about')->nullable();
+            $table->string('emergency_phone')->nullable();
+            $table->string('emergency_relation')->nullable();
+            $table->string('password');
+            $table->string('status')->default('active');
+            $table->foreignId('trainer_id')->constrained()->cascadeOnUpdate();
+            $table->foreignId('membership_id')->constrained()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
