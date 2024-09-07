@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('emergency_relation')->nullable();
             $table->string('password');
             $table->string('status')->default('active');
-            $table->foreignId('trainer_id')->constrained()->cascadeOnUpdate();
-            $table->foreignId('membership_id')->constrained()->cascadeOnUpdate();
+            $table->foreignId('trainer_id')->constrained('trainers')->cascadeOnUpdate();
+            $table->foreignId('membership_id')->constrained('memberships')->cascadeOnUpdate();
             $table->timestamps();
         });
     }
