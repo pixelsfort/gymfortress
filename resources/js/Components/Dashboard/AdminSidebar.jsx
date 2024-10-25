@@ -45,7 +45,7 @@ const AdminSidebar = () => {
                 </div>
 
                 <ScrollArea className="flex h-[100vh] justify-center pt-2">
-                    <ul className="flex flex-col items-center gap-2">
+                    <ul className="flex flex-col items-center gap-4">
                         {menus.map((item, i) => {
                             return (
                                 <li key={i} onClick={() => toggleSubMenu(i)}>

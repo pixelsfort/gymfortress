@@ -50,10 +50,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             <main>
                 <section className="mx-auto max-w-full">
                     <div className="grid min-h-[calc(100vh-80px)] grid-cols-12 items-center gap-6 px-6 py-6 xl:px-6">
-                        <div className="bg-landing-hero-bg order-2 col-span-12 flex h-full flex-col justify-end rounded-lg bg-cover p-10 xl:order-1 xl:col-span-4">
+                        <div className="order-2 col-span-12 flex h-full flex-col justify-end rounded-lg bg-landing-hero-bg bg-cover p-10 xl:order-1 xl:col-span-4">
                             <div className="flex flex-col gap-1">
                                 <p className="text-base font-normal text-card">
-                                    copyright ©️ 2024 ~{" "}
+                                    2024 ©️ Copyright ~{" "}
                                     <span className="text-lg font-bold">
                                         GymFortress
                                     </span>

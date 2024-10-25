@@ -18,7 +18,7 @@ export default function Guest({ children }) {
                     </div>
                     <div className="absolute bottom-6 left-6 hidden flex-col gap-1 md:flex">
                         <p className="text-base font-normal text-card">
-                            copyright ©️ 2024 ~{" "}
+                            2024 ©️ Copyright ~{" "}
                             <span className="text-lg font-bold">
                                 GymFortress
                             </span>
