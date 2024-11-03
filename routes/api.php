@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MembersController;
 use App\Http\Controllers\Api\MembershipController;
+use App\Http\Controllers\Api\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +15,5 @@ Route::get('/user', function (Request $request) {
 Route::apiResource('memberships', MembershipController::class);
 
 Route::apiResource('members', MembersController::class);
+
+Route::apiResource('trainers', TrainerController::class);
