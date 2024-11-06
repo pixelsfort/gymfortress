@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->date('checkin   ')->nullable();
-            $table->date('checkout')->nullable();
+            $table->date('checkindate')->nullable();
+            $table->date('checkoutdate')->nullable();
             $table->string('code')->nullable();
             $table->foreignId('member_id')->constrained('members')->cascadeOnUpdate();
             $table->timestamps();
