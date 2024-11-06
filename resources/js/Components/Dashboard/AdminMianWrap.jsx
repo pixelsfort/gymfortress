@@ -15,7 +15,9 @@ const AdminMianWrap = ({ children }) => {
                 },
             )}
         >
-            <div className="mx-auto px-4 py-4 md:px-6 md:pt-6">{children}</div>
+            <div className="px-4 py-4 md:px-6 md:pt-6 2xl:mx-auto">
+                {children}
+            </div>
         </main>
     );
 };

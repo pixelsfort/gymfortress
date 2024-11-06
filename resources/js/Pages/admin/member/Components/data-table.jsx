@@ -18,7 +18,7 @@ const DataTable = ({ data, columns }) => {
         <div className="space-y-4">
             <div className="rounded-md border">
                 <Table>
-                    <TableCaption>A list of your recent invoices.</TableCaption>
+                    <TableCaption>A list of Members</TableCaption>
                     <TableHeader>
                         <TableRow>
                             <TableHead>Member</TableHead>
@@ -87,7 +87,7 @@ const DataTable = ({ data, columns }) => {
                                     Feb 12 2000
                                 </span>
                             </TableCell>
-                            <TableCell>action</TableCell>
+                            <TableCell>action (Add, Edit, Delete)</TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell className="font-medium">
@@ -148,7 +148,6 @@ const DataTable = ({ data, columns }) => {
                             </TableCell>
                             <TableCell>action</TableCell>
                         </TableRow>
-
                         <TableRow>
                             <TableCell className="font-medium">
                                 <div className="flex items-center gap-2">
