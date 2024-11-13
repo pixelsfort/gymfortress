@@ -13,7 +13,7 @@ function SingleMenuItem({ item }) {
             onClick={openSidebar}
         >
             <span
-                className={`inline-flex items-center justify-center rounded px-3 py-2 group-hover:bg-primary group-hover:text-primary-foreground ${currentPath === item.href ? "bg-primary" : ""}`}
+                className={`inline-flex items-center justify-center rounded-md px-2 py-2 group-hover:bg-primary group-hover:text-primary-foreground ${currentPath === item.href ? "bg-primary" : ""}`}
             >
                 <item.icon
                     className={`h-5 w-5 ${currentPath === item.href ? "text-white" : ""} `}

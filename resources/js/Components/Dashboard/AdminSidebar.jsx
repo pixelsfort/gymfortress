@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "@/Context/SidebarContext";
 import { cn } from "@/lib/utils";
 import { Link } from "@inertiajs/react";
+import { IoMdSettings } from "react-icons/io";
 
 const currentPath = window.location.pathname;
 
@@ -57,6 +58,25 @@ const AdminSidebar = () => {
                         })}
                     </ul>
                 </ScrollArea>
+
+                <ul className="mb-6 flex flex-col items-center gap-4">
+                    <li>
+                        <div
+                            className={`group flex h-[56px] w-[56px] flex-1 cursor-pointer flex-col items-center justify-center gap-1 rounded p-4`}
+                        >
+                            <span
+                                className={`inline-flex items-center justify-center rounded px-3 py-3 group-hover:bg-primary group-hover:text-primary-foreground`}
+                            >
+                                <IoMdSettings className={`h-5 w-5`} />
+                            </span>
+                            <span
+                                className={`text-[10px] font-semibold group-hover:text-primary`}
+                            >
+                                Settings
+                            </span>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             {/* Submenus */}

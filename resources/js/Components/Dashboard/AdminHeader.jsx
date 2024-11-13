@@ -24,7 +24,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "../ui/dialog";
+} from "@/Components/ui/dialog";
 import SearchBox from "./SearchBox";
 
 const AdminHeader = ({ user, header, children }) => {

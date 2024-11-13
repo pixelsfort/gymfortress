@@ -38,6 +38,12 @@ Route::get('/dropped-members', function () {
 })->middleware(['auth', 'verified'])->name('droped-members');
 
 
+// Membership Route
+Route::get('/membership', function () {
+    return Inertia::render('Admin/Membership/Memberships');
+})->middleware(['auth', 'verified'])->name('members');
+
+
 // Trainers Route
 Route::get('/trainers', function () {
     return Inertia::render('Admin/Trainer/Trainers');

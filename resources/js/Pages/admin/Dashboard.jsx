@@ -17,6 +17,16 @@ export default function Dashboard({ auth }) {
             <Head title="Dashboard" />
 
             <div className="space-y-6">
+                <div className="rounded-md bg-primary p-6">
+                    <div className="">
+                        <h2 className="mb-3 text-4xl font-normal text-card">
+                            Welcome Back!
+                        </h2>
+                        <p className="max-w-[300px] text-card">
+                            We have got this for today.
+                        </p>
+                    </div>
+                </div>
                 {/* Page Title */}
                 <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="text-default-800 text-2xl font-medium">
@@ -36,10 +46,10 @@ export default function Dashboard({ auth }) {
                 {/* Reaport Area */}
                 <div className="grid grid-cols-12 gap-6">
                     <div className="col-span-12 lg:col-span-8">
-                        <Report />
+                        <MemberReport />
                     </div>
                     <div className="col-span-12 lg:col-span-4">
-                        <MemberReport />
+                        <Report />
                     </div>
                 </div>
             </div>

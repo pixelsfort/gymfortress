@@ -22,7 +22,7 @@ createInertiaApp({
         root.render(
             <>
                 <App {...props} />
-                <ToastContainer hideProgressBar />
+                <ToastContainer hideProgressBar position="top-center" />
             </>,
         );
     },

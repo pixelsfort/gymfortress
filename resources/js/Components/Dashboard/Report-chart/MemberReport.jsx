@@ -18,17 +18,23 @@ import {
 export const description = "A bar chart";
 
 const chartData = [
-    { month: "January", desktop: 186 },
-    { month: "February", desktop: 305 },
-    { month: "March", desktop: 237 },
-    { month: "April", desktop: 73 },
-    { month: "May", desktop: 209 },
-    { month: "June", desktop: 214 },
+    { month: "January", members: 186 },
+    { month: "February", members: 240 },
+    { month: "March", members: 210 },
+    { month: "April", members: 73 },
+    { month: "May", members: 209 },
+    { month: "June", members: 214 },
+    { month: "July", members: 150 },
+    { month: "August", members: 95 },
+    { month: "September", members: 200 },
+    { month: "October", members: 50 },
+    { month: "November", members: 112 },
+    { month: "December", members: 90 },
 ];
 
 const chartConfig = {
     desktop: {
-        label: "Desktop",
+        label: "Member",
         color: "hsl(var(--chart-1))",
     },
 };
@@ -60,12 +66,13 @@ const MemberReport = () => {
                             axisLine={false}
                             tickFormatter={(value) => value.slice(0, 3)}
                         />
+
                         <ChartTooltip
                             cursor={false}
                             content={<ChartTooltipContent hideLabel />}
                         />
                         <Bar
-                            dataKey="desktop"
+                            dataKey="members"
                             fill="var(--color-desktop)"
                             radius={8}
                         />

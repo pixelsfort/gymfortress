@@ -6,6 +6,7 @@ import {
     Message,
     Settings,
     Dashboard,
+    Membership,
 } from "@/Components/svg";
 
 export const menusConfig = {
@@ -28,6 +29,27 @@ export const menusConfig = {
             ],
         },
         {
+            title: "Trainers",
+            icon: Members,
+            child: [
+                {
+                    title: "All Trainers",
+                    icon: Members,
+                    href: "/members",
+                },
+                {
+                    title: "Add New Trainer",
+                    icon: Members,
+                    href: "/add-member",
+                },
+                {
+                    title: "Dropped Trainer",
+                    icon: Members,
+                    href: "/dropped-members",
+                },
+            ],
+        },
+        {
             title: "Members",
             icon: Members,
             child: [
@@ -35,6 +57,27 @@ export const menusConfig = {
                     title: "All Members",
                     icon: Members,
                     href: "/members",
+                },
+                {
+                    title: "Add New Member",
+                    icon: Members,
+                    href: "/add-member",
+                },
+                {
+                    title: "Dropped Members",
+                    icon: Members,
+                    href: "/dropped-members",
+                },
+            ],
+        },
+        {
+            title: "Membership",
+            icon: Membership,
+            child: [
+                {
+                    title: "All Membership",
+                    icon: Members,
+                    href: "/membership",
                 },
                 {
                     title: "Add New Member",
