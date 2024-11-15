@@ -26,6 +26,7 @@ import {
     DialogTrigger,
 } from "@/Components/ui/dialog";
 import SearchBox from "./SearchBox";
+import Language from "./Language";
 
 const AdminHeader = ({ user, header, children }) => {
     const { toggleSidebar } = useContext(SidebarContext);
@@ -76,13 +77,16 @@ const AdminHeader = ({ user, header, children }) => {
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
+                        <Language />
                         <button className="relative inline-flex h-8 w-8 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-sm font-semibold ring-offset-background transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-0 md:h-9 md:w-9">
                             <MdOutlineNotificationsActive className="h-6 w-6" />
                             <div className="absolute bottom-[calc(100%-16px)] left-[calc(100%-18px)] inline-flex h-4 w-4 items-center justify-center rounded-full border border-transparent bg-primary p-0 text-xs font-medium text-primary-foreground ring-2 ring-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                                 6
                             </div>
                         </button>
+
                         <ThemeButton />
+
                         <Dropdown>
                             <Dropdown.Trigger>
                                 <span className="inline-flex rounded-md">

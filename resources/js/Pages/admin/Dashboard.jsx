@@ -1,8 +1,11 @@
 import AdminMianWrap from "@/Components/Dashboard/AdminMianWrap";
 import MemberReport from "@/Components/Dashboard/Report-chart/MemberReport";
 import Report from "@/Components/Dashboard/Report-chart/Report";
+import { Card, CardContent } from "@/Components/ui/card";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import Stats from "./Dashboard/Stats";
+import WelcomeCard from "./Dashboard/WelcomeCard";
 
 export default function Dashboard({ auth }) {
     return (
@@ -17,16 +20,6 @@ export default function Dashboard({ auth }) {
             <Head title="Dashboard" />
 
             <div className="space-y-6">
-                <div className="rounded-md bg-primary p-6">
-                    <div className="">
-                        <h2 className="mb-3 text-4xl font-normal text-card">
-                            Welcome Back!
-                        </h2>
-                        <p className="max-w-[300px] text-card">
-                            We have got this for today.
-                        </p>
-                    </div>
-                </div>
                 {/* Page Title */}
                 <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="text-default-800 text-2xl font-medium">
@@ -42,6 +35,15 @@ export default function Dashboard({ auth }) {
                         </button>
                     </div>
                 </div>
+
+                {/* Status */}
+                <Card>
+                    <CardContent className="p-4">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+                            <Stats />
+                        </div>
+                    </CardContent>
+                </Card>
 
                 {/* Reaport Area */}
                 <div className="grid grid-cols-12 gap-6">

@@ -7,6 +7,8 @@ import {
     Settings,
     Dashboard,
     Membership,
+    Billing,
+    Trainer,
 } from "@/Components/svg";
 
 export const menusConfig = {
@@ -22,6 +24,11 @@ export const menusConfig = {
                     href: "/dashboard",
                 },
                 {
+                    title: "Business Details",
+                    icon: Business,
+                    href: "",
+                },
+                {
                     title: "Staff/Trainer",
                     icon: Members,
                     href: "/trainers",
@@ -30,7 +37,7 @@ export const menusConfig = {
         },
         {
             title: "Trainers",
-            icon: Members,
+            icon: Trainer,
             child: [
                 {
                     title: "All Trainers",
@@ -79,36 +86,15 @@ export const menusConfig = {
                     icon: Members,
                     href: "/membership",
                 },
-                {
-                    title: "Add New Member",
-                    icon: Members,
-                    href: "/add-member",
-                },
-                {
-                    title: "Dropped Members",
-                    icon: Members,
-                    href: "/dropped-members",
-                },
             ],
         },
         {
-            title: "Business",
-            icon: Business,
-            child: [
-                {
-                    title: "Reports",
-                    icon: Business,
-                    href: "/reports",
-                },
-            ],
+            title: "Billing",
+            icon: Billing,
         },
         {
             title: "Message",
             icon: Message,
-        },
-        {
-            title: "Settings",
-            icon: Settings,
         },
     ],
 };
