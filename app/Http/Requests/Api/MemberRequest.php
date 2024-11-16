@@ -23,27 +23,42 @@ class MemberRequest extends FormRequest
      */
     public function rules(): array
     {
-        if($this->route('membership') != null)
+
+        if($this->route('member') != null)
         {
             return [
-                'title' => "required|unique:memberships,title,".$this->route('membership'),
-                'slug'          => 'nullable|unique:memberships,slug,'.$this->route('membership'),
-                'subtitle'      => "required",
-                'description'   => 'required',
-                'price'         => "required|decimal:0,2",
-                'status'        => 'required',
+               'firstname'              => "required",
+                'lastname'              => "required",
+                'gender'                => "required",
+                'email'                 => "required|email|unique:trainers,email,".$this->route('member'),
+                'phone'                 => "required",
+                'dob'                   => "required|date",
+
+                'hear_about'            => "required",
+                'emergency_phone'       => "required",
+                'emergency_relation'    => "required",
+
+                'trainer_id'            => "required",
+                'membership_id'         => "required",
+
+                'status'                => "required",
             ];
         }
         else{
             return [
-                'title' => "required|unique:memberships,title",
-                'slug'  => 'nullable|unique:memberships,slug',
-                'subtitle' => "required",
-                'description' => "required",
-                'price' => "required|decimal:0,2",
-                //'discount' => "",
-                //'dicounttype' => "",
-                //'status' => "required",
+                'firstname'             => "required",
+                'lastname'              => "required",
+                'gender'                => "required",
+                'email'                 => "required|email|unique:trainers,email",
+                'phone'                 => "required",
+                'dob'                   => "required|date",
+
+                'hear_about'            => "required",
+                'emergency_phone'       => "required",
+                'emergency_relation'    => "required",
+
+                'trainer_id'            => "required",
+                'membership_id'         => "required",
                 //
             ];
         }
