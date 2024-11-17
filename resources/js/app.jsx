@@ -7,6 +7,8 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// import "./utils/i18n";
+
 const appName = import.meta.env.VITE_APP_NAME || "GymFortress";
 
 createInertiaApp({

@@ -20,7 +20,7 @@ function SingleMenuItem({ item }) {
                 />
             </span>
             <span
-                className={`text-[10px] font-semibold group-hover:text-primary ${currentPath === item.href ? "text-primary" : ""}`}
+                className={`text-[10px] font-semibold text-muted-foreground group-hover:text-primary ${currentPath === item.href ? "text-primary" : ""}`}
             >
                 {title}
             </span>

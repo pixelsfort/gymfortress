@@ -26,11 +26,10 @@ const Language = () => {
             <DropdownMenuTrigger asChild>
                 <Button
                     type="button"
-                    className="bg-transparent hover:bg-transparent"
+                    className="relative inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-base font-semibold ring-offset-background transition-colors hover:bg-primary/20 hover:text-primary focus-visible:outline-none focus-visible:ring-0"
                 >
-                    <span className="text-sm text-black">
-                        <HiMiniLanguage />
-                        {selected ? selected.name : "En"}
+                    <span className="flex items-center gap-2 text-sm text-black">
+                        <HiMiniLanguage className="text-xl" />
                     </span>
                 </Button>
             </DropdownMenuTrigger>

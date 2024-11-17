@@ -28,6 +28,26 @@ import {
 import SearchBox from "./SearchBox";
 import Language from "./Language";
 
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { ChevronDown } from "lucide-react";
+import { Link } from "@inertiajs/react";
+import { Icon } from "@iconify/react";
+
 const AdminHeader = ({ user, header, children }) => {
     const { toggleSidebar } = useContext(SidebarContext);
     const { isSidebarOpen } = useContext(SidebarContext);
@@ -77,53 +97,120 @@ const AdminHeader = ({ user, header, children }) => {
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
+                        {/* Theme Switcher Light/Dark */}
+                        <ThemeButton />
+
+                        {/* Language Switcher */}
                         <Language />
-                        <button className="relative inline-flex h-8 w-8 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-sm font-semibold ring-offset-background transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-0 md:h-9 md:w-9">
+
+                        <button className="relative inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-base font-semibold ring-offset-background transition-colors hover:bg-primary/20 hover:text-primary focus-visible:outline-none focus-visible:ring-0">
                             <MdOutlineNotificationsActive className="h-6 w-6" />
                             <div className="absolute bottom-[calc(100%-16px)] left-[calc(100%-18px)] inline-flex h-4 w-4 items-center justify-center rounded-full border border-transparent bg-primary p-0 text-xs font-medium text-primary-foreground ring-2 ring-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                                 6
                             </div>
                         </button>
 
-                        <ThemeButton />
-
-                        <Dropdown>
-                            <Dropdown.Trigger>
-                                <span className="inline-flex rounded-md">
-                                    <button
-                                        type="button"
-                                        className="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
-                                    >
-                                        {/* {user.name} */}
-                                        Username
-                                        <svg
-                                            className="-me-0.5 ms-2 h-4 w-4"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                        >
-                                            <path
-                                                fillRule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        <DropdownMenu>
+                            <DropdownMenuTrigger
+                                asChild
+                                className="cursor-pointer"
+                            >
+                                <div className="flex items-center space-x-3">
+                                    <Avatar>
+                                        <AvatarImage src="/images/user-avatar.webp" />
+                                        <AvatarFallback>MA</AvatarFallback>
+                                    </Avatar>
+                                    <div className="hidden flex-none items-center overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal text-zinc-600 dark:text-primary-foreground lg:flex">
+                                        <span className="block w-[85px] overflow-hidden text-ellipsis whitespace-nowrap">
+                                            <span className="block overflow-hidden text-ellipsis">
+                                                Mottasin Leemon
+                                            </span>
+                                            <span className="block overflow-hidden text-ellipsis text-xs text-zinc-300">
+                                                leemon@mottasin
+                                            </span>
+                                        </span>
+                                        <span className="ml-1 inline-block text-base">
+                                            <ChevronDown
+                                                absoluteStrokeWidth
+                                                className="h-5 w-5"
                                             />
-                                        </svg>
-                                    </button>
-                                </span>
-                            </Dropdown.Trigger>
-
-                            <Dropdown.Content>
-                                <Dropdown.Link href={route("profile.edit")}>
-                                    Profile
-                                </Dropdown.Link>
-                                <Dropdown.Link
-                                    href={route("logout")}
-                                    method="post"
-                                    as="button"
-                                >
-                                    Log Out
-                                </Dropdown.Link>
-                            </Dropdown.Content>
-                        </Dropdown>
+                                        </span>
+                                    </div>
+                                </div>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56" align="start">
+                                <DropdownMenuLabel>
+                                    My Account
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuGroup>
+                                    <Link
+                                        href={route("profile.edit")}
+                                        className="cursor-pointer"
+                                    >
+                                        <DropdownMenuItem className="text-default-600 flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium capitalize dark:hover:bg-background">
+                                            <Icon
+                                                icon="heroicons:user"
+                                                className="h-4 w-4"
+                                            />
+                                            Profile
+                                        </DropdownMenuItem>
+                                    </Link>
+                                </DropdownMenuGroup>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuGroup>
+                                    <DropdownMenuItem>Team</DropdownMenuItem>
+                                    <DropdownMenuSub>
+                                        <DropdownMenuSubTrigger>
+                                            Invite users
+                                        </DropdownMenuSubTrigger>
+                                        <DropdownMenuPortal>
+                                            <DropdownMenuSubContent>
+                                                <DropdownMenuItem>
+                                                    Email
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    Message
+                                                </DropdownMenuItem>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem>
+                                                    More...
+                                                </DropdownMenuItem>
+                                            </DropdownMenuSubContent>
+                                        </DropdownMenuPortal>
+                                    </DropdownMenuSub>
+                                    <DropdownMenuItem>
+                                        New Team
+                                        <DropdownMenuShortcut>
+                                            ⌘+T
+                                        </DropdownMenuShortcut>
+                                    </DropdownMenuItem>
+                                </DropdownMenuGroup>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>GitHub</DropdownMenuItem>
+                                <DropdownMenuItem>Support</DropdownMenuItem>
+                                <DropdownMenuItem disabled>
+                                    API
+                                </DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>
+                                    <Link
+                                        href={route("logout")}
+                                        method="post"
+                                        as="button"
+                                        className="cursor-pointer"
+                                    >
+                                        <DropdownMenuItem className="text-default-600 flex cursor-pointer items-center gap-2 px-3 py-1.5 text-sm font-medium capitalize dark:hover:bg-background">
+                                            <Icon
+                                                icon="heroicons-outline:logout"
+                                                className="h-4 w-4"
+                                            />
+                                            Logout
+                                        </DropdownMenuItem>
+                                    </Link>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </div>
                 </div>
             </div>
