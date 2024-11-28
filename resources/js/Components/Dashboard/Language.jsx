@@ -29,7 +29,8 @@ const Language = () => {
                     className="relative inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-base font-semibold ring-offset-background transition-colors hover:bg-primary/20 hover:text-primary focus-visible:outline-none focus-visible:ring-0"
                 >
                     <span className="flex items-center gap-2 text-sm text-black">
-                        <HiMiniLanguage className="text-xl" />
+                        <HiMiniLanguage />
+                        {/* {selected ? selected.name : "En"} */}
                     </span>
                 </Button>
             </DropdownMenuTrigger>

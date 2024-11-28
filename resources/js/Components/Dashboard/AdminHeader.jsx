@@ -104,7 +104,7 @@ const AdminHeader = ({ user, header, children }) => {
                         <Language />
 
                         <button className="relative inline-flex h-10 w-10 items-center justify-center whitespace-nowrap rounded-full bg-transparent text-base font-semibold ring-offset-background transition-colors hover:bg-primary/20 hover:text-primary focus-visible:outline-none focus-visible:ring-0">
-                            <MdOutlineNotificationsActive className="h-6 w-6" />
+                            <MdOutlineNotificationsActive className="text-xl" />
                             <div className="absolute bottom-[calc(100%-16px)] left-[calc(100%-18px)] inline-flex h-4 w-4 items-center justify-center rounded-full border border-transparent bg-primary p-0 text-xs font-medium text-primary-foreground ring-2 ring-primary-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
                                 6
                             </div>
