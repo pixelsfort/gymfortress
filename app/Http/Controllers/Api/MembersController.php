@@ -23,7 +23,7 @@ class MembersController extends BaseController
         if($member->total() > 0){
             return $this->sendResponse(MemberResource::collection(resource: $member),  'Member listed successfully.');
         }else{
-            return $this->sendError("Member not founds!", "");
+            return $this->sendError("Member not found!", "");
         }
 
     }
