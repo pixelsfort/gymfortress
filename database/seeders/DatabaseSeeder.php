@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // User Factory
         // User::factory(10)->create();
 
         // Trainer Factory
@@ -25,6 +26,6 @@ class DatabaseSeeder extends Seeder
         // Membership::factory()->count(10)->create();
 
         // Member Factory
-        Member::factory()->count(10)->create();
+        // Member::factory()->count(10)->create();
     }
 }

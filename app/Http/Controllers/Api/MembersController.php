@@ -18,10 +18,14 @@ class MembersController extends BaseController
      */
     public function index()
     {
-        $member = Member::latest()->paginate(10);
-        //dd($member->total());
-        if($member->total() > 0){
-            return $this->sendResponse(MemberResource::collection(resource: $member),  'Member listed successfully.');
+        $members = Member::latest()->paginate(10);
+
+        return inertia('Members', ['members' => $members] );
+
+        // dd($members->total());
+
+        if($members->total() > 0){
+            return $this->sendResponse(MemberResource::collection(resource: $members),  'Member listed successfully.');
         }else{
             return $this->sendError("Member not found!", "");
         }

@@ -6,10 +6,11 @@ import { createInertiaApp } from "@inertiajs/react";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // import "./utils/i18n";
-
 const appName = import.meta.env.VITE_APP_NAME || "GymFortress";
+const queryClient = new QueryClient();
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -22,10 +23,10 @@ createInertiaApp({
         const root = createRoot(el);
 
         root.render(
-            <>
+            <QueryClientProvider client={queryClient}>
                 <App {...props} />
                 <ToastContainer hideProgressBar position="top-center" />
-            </>,
+            </QueryClientProvider>,
         );
     },
     progress: {

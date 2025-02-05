@@ -12,8 +12,23 @@ import {
 } from "@/Components/ui/table";
 import { Badge } from "@/Components/ui/badge";
 import { BsEnvelopeAtFill } from "react-icons/bs";
+import { useQuery } from "@tanstack/react-query";
+import axios from "../../../../utils/axios";
 
-const DataTable = ({ data, columns }) => {
+const DataTable = () => {
+    const fetchMembers = async () => {
+        const response = await fetch("http://127.0.0.1:8000/api/members");
+        const memberData = response.json();
+        return memberData;
+    };
+
+    const { data, isLoading, isError, error } = useQuery({
+        queryKey: ["members"],
+        queryFn: fetchMembers,
+    });
+
+    console.log(data);
+
     return (
         <div className="space-y-4">
             <div className="rounded-md border">
