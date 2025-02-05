@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+<<<<<<< HEAD
 
 use App\Models\Trainer;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -14,6 +15,15 @@ use Illuminate\Support\Str;
 class TrainerFactory extends Factory
 {
 
+=======
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Trainer>
+ */
+class TrainerFactory extends Factory
+{
+>>>>>>> 4025960 (changes files over ]s)
     /**
      * Define the model's default state.
      *
@@ -22,6 +32,7 @@ class TrainerFactory extends Factory
     public function definition(): array
     {
         return [
+<<<<<<< HEAD
             'firstname'         => $this->faker->firstName,
             'lastname'          => $this->faker->lastName,
             'gender'            => $this->faker->randomElement(['Male', 'Female', 'Other']),
@@ -37,6 +48,9 @@ class TrainerFactory extends Factory
 
             'password'          => Hash::make('password'),
             'status'            => $this->faker->randomElement([0, 1]),
+=======
+            //
+>>>>>>> 4025960 (changes files over ]s)
         ];
     }
 }

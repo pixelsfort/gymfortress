@@ -156,9 +156,15 @@
     "@babel/helper-plugin-utils" "^7.24.7"
 
 "@babel/runtime@^7.23.2", "@babel/runtime@^7.25.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
+<<<<<<< HEAD
   version "7.25.4"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.25.4.tgz"
   integrity sha512-DSgLeL/FNcpXuzav5wfYvHCGvynXkJbn3Zvc3823AEe9nPwW9IK4UoCSS5yGymmQzN0pCPvivtgS6/8U2kkm1w==
+=======
+  version "7.26.0"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.26.0.tgz"
+  integrity sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==
+>>>>>>> 4025960 (changes files over ]s)
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -193,10 +199,17 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+<<<<<<< HEAD
 "@esbuild/win32-x64@0.21.5":
   version "0.21.5"
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz"
   integrity sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==
+=======
+"@esbuild/win32-ia32@0.21.5":
+  version "0.21.5"
+  resolved "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.21.5.tgz"
+  integrity sha512-SWXFF1CL2RVNMaVs+BBClwtfZSvDgtL//G/smwAc5oVK/UPu2Gu9tIaRgFmYFFKrmg3SyAjSrElf0TiJ1v8fYA==
+>>>>>>> 4025960 (changes files over ]s)
 
 "@floating-ui/core@^1.6.0":
   version "1.6.5"
@@ -245,9 +258,15 @@
     "@tanstack/react-virtual" "^3.8.1"
 
 "@iconify/react@^5.0.2":
+<<<<<<< HEAD
   version "5.2.0"
   resolved "https://registry.npmjs.org/@iconify/react/-/react-5.2.0.tgz"
   integrity sha512-7Sdjrqq3fkkQNks9SY3adGC37NQTHsBJL2PRKlQd455PoDi9s+Es9AUTY+vGLFOYs5yO9w9yCE42pmxCwG26WA==
+=======
+  version "5.0.2"
+  resolved "https://registry.npmjs.org/@iconify/react/-/react-5.0.2.tgz"
+  integrity sha512-wtmstbYlEbo4NDxFxBJkhkf9gJBDqMGr7FaqLrAUMneRV3Z+fVHLJjOhWbkAF8xDQNFC/wcTYdrWo1lnRhmagQ==
+>>>>>>> 4025960 (changes files over ]s)
   dependencies:
     "@iconify/types" "^2.0.0"
 
@@ -374,9 +393,15 @@
     "@radix-ui/react-primitive" "2.0.0"
 
 "@radix-ui/react-avatar@^1.1.1":
+<<<<<<< HEAD
   version "1.1.2"
   resolved "https://registry.npmjs.org/@radix-ui/react-avatar/-/react-avatar-1.1.2.tgz"
   integrity sha512-GaC7bXQZ5VgZvVvsJ5mu/AEbjYLnhhkoidOboC50Z6FFlLA03wG2ianUoH+zgDQ31/9gCF59bE4+2bBgTyMiig==
+=======
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/@radix-ui/react-avatar/-/react-avatar-1.1.1.tgz"
+  integrity sha512-eoOtThOmxeoizxpX6RiEsQZ2wj5r4+zoeqAwO0cBaFQGjJwIH3dIX0OCxNrCyrrdxG+vBweMETh3VziQG7c1kw==
+>>>>>>> 4025960 (changes files over ]s)
   dependencies:
     "@radix-ui/react-context" "1.1.1"
     "@radix-ui/react-primitive" "2.0.1"
@@ -799,10 +824,17 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
+<<<<<<< HEAD
 "@rollup/rollup-win32-x64-msvc@4.19.2":
   version "4.19.2"
   resolved "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.19.2.tgz"
   integrity sha512-DPi0ubYhSow/00YqmG1jWm3qt1F8aXziHc/UNy8bo9cpCacqhuWu+iSq/fp2SyEQK7iYTZ60fBU9cat3MXTjIQ==
+=======
+"@rollup/rollup-win32-ia32-msvc@4.19.2":
+  version "4.19.2"
+  resolved "https://registry.npmjs.org/@rollup/rollup-win32-ia32-msvc/-/rollup-win32-ia32-msvc-4.19.2.tgz"
+  integrity sha512-Mda7iG4fOLHNsPqjWSjANvNZYoW034yxgrndof0DwCy0D3FvTjeNo+HGE6oGWgvcLZNLlcp0hLEFcRs+UGsMLg==
+>>>>>>> 4025960 (changes files over ]s)
 
 "@svgr/babel-plugin-add-jsx-attribute@8.0.0":
   version "8.0.0"
@@ -1701,23 +1733,41 @@ html-parse-stringify@^3.0.1:
     void-elements "3.1.0"
 
 i18next-browser-languagedetector@^8.0.0:
+<<<<<<< HEAD
   version "8.0.2"
   resolved "https://registry.npmjs.org/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.0.2.tgz"
   integrity sha512-shBvPmnIyZeD2VU5jVGIOWP7u9qNG3Lj7mpaiPFpbJ3LVfHZJvVzKR4v1Cb91wAOFpNw442N+LGPzHOHsten2g==
+=======
+  version "8.0.0"
+  resolved "https://registry.npmjs.org/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.0.0.tgz"
+  integrity sha512-zhXdJXTTCoG39QsrOCiOabnWj2jecouOqbchu3EfhtSHxIB5Uugnm9JaizenOy39h7ne3+fLikIjeW88+rgszw==
+>>>>>>> 4025960 (changes files over ]s)
   dependencies:
     "@babel/runtime" "^7.23.2"
 
 i18next-http-backend@^2.6.2:
+<<<<<<< HEAD
   version "2.7.3"
   resolved "https://registry.npmjs.org/i18next-http-backend/-/i18next-http-backend-2.7.3.tgz"
   integrity sha512-FgZxrXdRA5u44xfYsJlEBL4/KH3f2IluBpgV/7riW0YW2VEyM8FzVt2XHAOi6id0Ppj7vZvCZVpp5LrGXnc8Ig==
+=======
+  version "2.6.2"
+  resolved "https://registry.npmjs.org/i18next-http-backend/-/i18next-http-backend-2.6.2.tgz"
+  integrity sha512-Hp/kd8/VuoxIHmxsknJXjkTYYHzivAyAF15pzliKzk2TiXC25rZCEerb1pUFoxz4IVrG3fCvQSY51/Lu4ECV4A==
+>>>>>>> 4025960 (changes files over ]s)
   dependencies:
     cross-fetch "4.0.0"
 
 i18next@^23.16.5, "i18next@>= 23.2.3":
+<<<<<<< HEAD
   version "23.16.8"
   resolved "https://registry.npmjs.org/i18next/-/i18next-23.16.8.tgz"
   integrity sha512-06r/TitrM88Mg5FdUXAKL96dJMzgqLE5dv3ryBAra4KCwD9mJ4ndOTS95ZuymIGoE+2hzfdaMak2X11/es7ZWg==
+=======
+  version "23.16.5"
+  resolved "https://registry.npmjs.org/i18next/-/i18next-23.16.5.tgz"
+  integrity sha512-KTlhE3EP9x6pPTAW7dy0WKIhoCpfOGhRQlO+jttQLgzVaoOjWwBWramu7Pp0i+8wDNduuzXfe3kkVbzrKyrbTA==
+>>>>>>> 4025960 (changes files over ]s)
   dependencies:
     "@babel/runtime" "^7.23.2"
 
@@ -2191,9 +2241,15 @@ react-day-picker@8.10.1:
     scheduler "^0.23.2"
 
 react-i18next@^15.1.1:
+<<<<<<< HEAD
   version "15.4.0"
   resolved "https://registry.npmjs.org/react-i18next/-/react-i18next-15.4.0.tgz"
   integrity sha512-Py6UkX3zV08RTvL6ZANRoBh9sL/ne6rQq79XlkHEdd82cZr2H9usbWpUNVadJntIZP2pu3M2rL1CN+5rQYfYFw==
+=======
+  version "15.1.1"
+  resolved "https://registry.npmjs.org/react-i18next/-/react-i18next-15.1.1.tgz"
+  integrity sha512-R/Vg9wIli2P3FfeI8o1eNJUJue5LWpFsQePCHdQDmX0Co3zkr6kdT8gAseb/yGeWbNz1Txc4bKDQuZYsC0kQfw==
+>>>>>>> 4025960 (changes files over ]s)
   dependencies:
     "@babel/runtime" "^7.25.0"
     html-parse-stringify "^3.0.1"
