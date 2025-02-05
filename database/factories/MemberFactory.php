@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-<<<<<<< HEAD
 
 use App\Models\Member;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -15,15 +14,6 @@ use Illuminate\Support\Str;
 class MemberFactory extends Factory
 {
 
-=======
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Member>
- */
-class MemberFactory extends Factory
-{
->>>>>>> 4025960 (changes files over ]s)
     /**
      * Define the model's default state.
      *
@@ -32,7 +22,6 @@ class MemberFactory extends Factory
     public function definition(): array
     {
         return [
-<<<<<<< HEAD
             'firstname'         => $this->faker->firstName,
             'lastname'          => $this->faker->lastName,
             'gender'            => $this->faker->randomElement(['Male', 'Female', 'Other']),
@@ -52,12 +41,9 @@ class MemberFactory extends Factory
             'hear_about'        => $this->faker->sentence,
             'emergency_phone'   => $this->faker->phoneNumber,
             'emergency_relation'=> $this->faker->randomElement(['Parent', 'Sibling', 'Friend', 'Spouse']),
-            
+
             'trainer_id'        => $this->faker->randomDigitNotNull,
             'membership_id'     => $this->faker->randomDigitNotNull,
-=======
-            //
->>>>>>> 4025960 (changes files over ]s)
         ];
     }
 }
