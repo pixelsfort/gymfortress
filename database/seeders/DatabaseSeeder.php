@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         // Trainer Factory
-        // Trainer::factory()->count(10)->create();
+        //Trainer::factory()->count(10)->create();
 
         // Membership Factory
-        // Membership::factory()->count(10)->create();
+        //Membership::factory()->count(10)->create();
 
         // Member Factory
         // Member::factory()->count(10)->create();
