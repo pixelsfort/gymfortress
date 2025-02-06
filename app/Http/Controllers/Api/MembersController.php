@@ -20,7 +20,7 @@ class MembersController extends BaseController
     {
         $members = Member::latest()->paginate(10);
 
-        return inertia('Members', ['members' => $members] );
+        return inertia('Admin/Members', ['members' => $members] );
 
         // dd($members->total());
 

@@ -13,17 +13,16 @@ import {
 import { Badge } from "@/Components/ui/badge";
 import { BsEnvelopeAtFill } from "react-icons/bs";
 import { useQuery } from "@tanstack/react-query";
-import axios from "../../../../utils/axios";
 
 const DataTable = () => {
     const fetchMembers = async () => {
-        const response = await fetch("http://127.0.0.1:8000/api/members");
+        const response = await fetch("/api/members");
         const memberData = response.json();
         return memberData;
     };
 
     const { data, isLoading, isError, error } = useQuery({
-        queryKey: ["members"],
+        queryKey: ["member"],
         queryFn: fetchMembers,
     });
 
