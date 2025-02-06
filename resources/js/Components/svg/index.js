@@ -1,5 +1,6 @@
 //  dual tone icon
 
+export { default as Bell } from "./bell.svg?react";
 export { default as Billing } from "./billing.svg?react";
 export { default as Home } from "./home.svg?react";
 export { default as Gym } from "./gym.svg?react";

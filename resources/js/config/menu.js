@@ -1,4 +1,5 @@
 import {
+    Bell,
     Home,
     Gym,
     Members,
@@ -91,6 +92,10 @@ export const menusConfig = {
         {
             title: "Billing",
             icon: Billing,
+        },
+        {
+            title: "Notifications",
+            icon: Bell,
         },
         {
             title: "Message",

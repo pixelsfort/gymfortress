@@ -21,3 +21,5 @@ Route::apiResource('trainers', TrainerController::class);
 
 Route::post('settings', [SettingController::class, 'store']);
 Route::get('settings', [SettingController::class, 'index']);
+
+

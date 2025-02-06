@@ -13,14 +13,14 @@ function SingleMenuItem({ item }) {
             onClick={openSidebar}
         >
             <span
-                className={`inline-flex items-center justify-center rounded-md px-2 py-2 group-hover:bg-primary group-hover:text-primary-foreground ${currentPath === item.href ? "bg-primary" : ""}`}
+                className={`inline-flex items-center justify-center rounded-md px-2 py-2 group-hover:bg-primary-foreground group-hover:text-primary ${currentPath === item.href ? "bg-primary-foreground" : ""}`}
             >
                 <item.icon
-                    className={`h-5 w-5 ${currentPath === item.href ? "text-white" : ""} `}
+                    className={`h-5 w-5 text-primary-foreground group-hover:text-primary ${currentPath === item.href ? "!text-primary" : ""} `}
                 />
             </span>
             <span
-                className={`text-[10px] font-semibold text-muted-foreground group-hover:text-primary ${currentPath === item.href ? "text-primary" : ""}`}
+                className={`text-[10px] font-semibold text-primary-foreground/60 ${currentPath === item.href ? "!text-primary-foreground" : ""}`}
             >
                 {title}
             </span>

@@ -20,11 +20,11 @@ class MembersController extends BaseController
     {
         $members = Member::latest()->paginate(10);
 
-        return inertia('Admin/Members', ['members' => $members] );
+        // return inertia('Admin/Members', ['members' => $members] );
 
         // dd($members->total());
 
-        if($members->total() > 0){
+        if( $members -> total () > 0){
             return $this->sendResponse(MemberResource::collection(resource: $members),  'Member listed successfully.');
         }else{
             return $this->sendError("Member not found!", "");

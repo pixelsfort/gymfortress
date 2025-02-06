@@ -1,5 +1,6 @@
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import ApplicationLogo from "../Logo/ApplicationLogo";
+import { CgGym } from "react-icons/cg";
 import { menusConfig } from "@/config/menu";
 import SingleMenuItem from "./SingleMenuItem";
 import { useContext, useEffect, useState } from "react";
@@ -40,12 +41,12 @@ const AdminSidebar = () => {
                 { flex: isSidebarOpen },
             )}
         >
-            <div className="pointer-events-auto relative z-20 flex h-full w-[72px] flex-col border-r border-dashed bg-card transition-all duration-300">
-                <div className="max-h-[72px] p-4">
-                    <ApplicationLogo className="h-8 w-8 text-primary" />
+            <div className="pointer-events-auto relative z-20 flex h-full w-[72px] flex-col border-r border-solid border-primary bg-primary transition-all duration-300">
+                <div className="flex max-h-[72px] items-center justify-center bg-primary/60 p-4">
+                    <CgGym className="h-8 w-8 text-primary-foreground" />
                 </div>
 
-                <ScrollArea className="flex h-[100vh] justify-center pt-2">
+                <ScrollArea className="flex h-[100vh] justify-center pt-10">
                     <ul className="flex flex-col items-center gap-4">
                         {menus.map((item, i) => {
                             return (
@@ -65,12 +66,14 @@ const AdminSidebar = () => {
                             className={`group flex h-[56px] w-[56px] flex-1 cursor-pointer flex-col items-center justify-center gap-1 rounded p-4`}
                         >
                             <span
-                                className={`inline-flex items-center justify-center rounded px-3 py-3 group-hover:bg-primary group-hover:text-primary-foreground`}
+                                className={`inline-flex items-center justify-center rounded px-3 py-3 group-hover:bg-primary-foreground group-hover:text-primary-foreground`}
                             >
-                                <IoMdSettings className={`h-5 w-5`} />
+                                <IoMdSettings
+                                    className={`h-5 w-5 text-primary-foreground group-hover:text-primary`}
+                                />
                             </span>
                             <span
-                                className={`text-[10px] font-semibold group-hover:text-primary`}
+                                className={`text-[10px] font-semibold text-primary-foreground/60 group-hover:text-primary-foreground`}
                             >
                                 Settings
                             </span>
@@ -82,7 +85,7 @@ const AdminSidebar = () => {
             {/* Submenus */}
             <div
                 className={cn(
-                    "pointer-events-auto relative z-10 flex h-full w-[228px] flex-col border-r bg-card transition-all duration-300",
+                    "pointer-events-auto relative z-10 flex h-full w-[228px] flex-col border-r bg-primary/5 transition-all duration-300",
                     { "translate-x-[calc(-100%_-_72px)]": isSidebarOpen },
                 )}
             >
